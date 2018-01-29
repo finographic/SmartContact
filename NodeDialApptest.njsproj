@@ -2806,7 +2806,6 @@
     <Compile Include="sc\wavey\lib\export\mp3\lame.min.js" />
     <Compile Include="sc\wavey\lib\export\wav\recorderWorker.js" />
     <Compile Include="sc\wavey\lib\polyfill.js" />
-    <Content Include="codesave.txt" />
     <Content Include="node_modules\semantic-ui\.csscomb.json" />
     <Content Include="node_modules\semantic-ui\.csslintrc" />
     <Content Include="node_modules\semantic-ui\.jshintrc" />
