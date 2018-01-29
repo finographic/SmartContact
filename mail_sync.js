@@ -7,7 +7,7 @@ var sgTransport = require('nodemailer-sendgrid-transport');
 var smtpConfig = {
     host: 'smtp01.myhostedservice.com',
     port: '587',
-    auth: { user: 'randolph.herron@realsmartcontact.com', pass: 'Loe!exe3!@#' },
+    auth: { user: 'randolph.herron@realsmartcontact.com', pass: '*' },
     secureConnection: true,
     tls: { ciphers: 'SSLv3' }
 };
@@ -17,7 +17,7 @@ var transporter = nodemailer.createTransport(smtpConfig);
 
 var options = {
     auth: {
-        api_key: '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'
+        api_key: '*'
     }
 }
 

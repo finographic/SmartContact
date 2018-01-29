@@ -16,7 +16,7 @@ var config = {
     host: 'devacd.datapex.com',
     port: 5432,
     user: 'dbroot',
-    password: 'Loe!exe3!@#',
+     password: '*',
     database: 'smartcontact',
     max: 50, // max number of clients in the pool
     idleTimeoutMillis: 5, 
