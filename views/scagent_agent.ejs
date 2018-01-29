@@ -1,0 +1,819 @@
+﻿                <div class="main-content mmnu_agentcontent ">
+                    <br />
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <!-- start survey SIMPLE  -->
+                                    <div class="widget srv_widget  widget-scrolling">
+                                        <div class="widget-header">
+                                            <span class="heading_med_pad">Survey</span>
+                                            <div class="btn-group widget-header-toolbar">
+                                                <a href="#" title="" class="btn-borderless btn-focus"><i class="fa fa-eye fa-lg" style="line-height: 1px;"></i></a>
+
+
+                                            </div>
+                                             <div class="btn-group widget-header-toolbar">
+                                                            <span class="srv_qst_display_order heading_med_pad">Intro</span>
+                                            </div>
+                                        </div>
+                                        <div >
+                                            <div class="widget-content">
+                                                <table style="margin:auto;text-align:center;">
+                                                    <tr>
+                                                        <td style="text-align:center;">
+
+                                                          
+
+                                                             <div class="tab-content srv_content"  style="text-align:center; ">
+
+                                                                      <div id="srv_intro_div" class="srv_display_intro_class">
+								
+                                                                        </div>
+
+                                                                     <div  class="survey_question_div">
+								
+                                                                        </div>
+                                                                 <div class="srvqst_ans_div"  style="padding-top:40px;">
+
+                                                                 </div>
+                                                            
+
+
+								                                        <div class="tab-pane fade srv_display_intro_class" id="srv_take">
+								
+                                                                        </div>
+								                                        <div class="tab-pane fade srv_display_intro_class" id="srv_refused">
+								
+								                                        </div>
+								                                        <div class="tab-pane fade srv_display_intro_class" id="srv_leftmessage">
+							
+								                                        </div>
+
+                                                                        <div class="tab-pane fade srv_display_intro_class" id="srv_dnc">
+							
+								                                        </div>
+							                                        </div>
+
+							           
+
+                                                        </td>
+
+                                                    </tr>
+                                                    
+                                                </table>
+                            
+                                
+                                            	
+								
+                                              
+  
+                                            </div>
+                                        </div>
+                                        <div class="widget-footer" >
+                                            <table class="centerdiv" style="text-align:center;width:70%;border-spacing:0; border-collapse: collapse;">
+                                                <tr   style="height: 50px;">
+                                                     <td class="weather_tag heading_xxsmaller" style="padding:0px;border-right:1px solid darkgrey;padding-left:20px;"></td>
+                                                     <td class="weather_name heading_xxsmaller" style="padding:0px;"></td>    
+                                                      <td class="weather_temp heading_xxsmaller" style="padding:0px"></td>
+                                                    <td class="weather_descript heading_xxsmaller" style="padding:0px"></td>
+                                                      <td class="weather_icon heading_xxsmaller" style="padding:0px;"></td>
+                                                                       
+                                                     <td class="map_tag heading_xxsmaller"  style="padding:0px;padding-left:20px;border-left:1px solid darkgrey;"><i class="fa fa-street-view fa-2x faa-horizontal animated-hover" data-tip="this is the tip!" data-toggle="modal" data-target="#gmapsmodal"  aria-hidden="true"></i>&nbsp;Google Maps</td>                               
+                                              
+                                                    </tr>
+
+                                                        <!-- remove buttons until ready for survey Add take survey button add appointment box to bottom
+                                                            <ul class="nav nav-pills nav-pills-custom-minimal custom-minimal-bottom navsrv_ul" role="tablist" style="margin:auto; display:none;">
+								                        <li class="intro_srv_btns"><a href="#srv_take" role="tab" data-toggle="tab" >  <button type="button" class="btn btn-success"><i class="fa fa-check-circle"></i> Take Survey</button></a></li>
+                                          
+								                        <li class="intro_srv_btns"><a href="#srv_refused" role="tab" data-toggle="tab" ><button type="button" class="btn btn-danger"><i class="fa fa-trash-o"></i> Refuse Survey</button></a></li>
+                                                    
+								                        <li class="intro_srv_btns"><a href="#srv_leftmessage" role="tab" data-toggle="tab"> <button type="button" class="btn btn-warning"><i class="fa fa-warning"></i> Left Message</button></a></li>
+                                                     
+                                                      <li class="intro_srv_btns"><a href="#srv_dnc" role="tab" data-toggle="tab" ><button type="button" class="btn btn-default"><i class="fa fa-times"></i> DNC </button></a></li>
+
+                                         
+                                                      <li class="in_srv_fwdback_btn" style="display:none"><a href="#srv_forward" role="tab" data-toggle="tab" ><button type="button" class="btn btn-warning"><i class="fa fa-arrow-circle-o-left"></i> Back </button></a></li>
+                    
+                                                      <li class="in_srv_fwdback_btn" style="display:none" ><a href="#srv_back" role="tab" data-toggle="tab" ><button type="button" class="btn btn-success"> Submit <i class="fa fa-arrow-circle-o-right"></i></button></a></li>
+							                        </ul> -->
+                                              
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <!-- END survey SIMPLE  -->
+
+
+
+
+
+
+
+                                    <br />
+
+
+
+                                    <!-- WIDGET dial  -->
+                                    <div class="col-md-9 col-xs-9 col-lg-7 col-xl-7" style="padding-left:0px !important">
+                                        <div class="widget">
+                                            <div class="widget-header">
+                                                <span class="heading_med_pad"><i class="fa fa-phone fa-fw"></i> <span style="padding-right:5px">Contact Dial - </span></span><span><span class="sipstatus" style="padding-bottom:5px;display:none"></span><span class="heading_med_pad agstatus_displaybox">Away</span> <span class="calltime" style="padding-left:2%;color:whitesmoke;font-weight:700"> </span>  </span>
+
+                                      
+
+                                                <div class="btn-group widget-header-toolbar">
+                                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle statusdialbtn" data-toggle="dropdown" style="font-size:13px" disabled>
+                                                        <i class="fa fa-chevron-down" style="border-right-style:solid;padding-right:10px;"></i> Disconnected
+                                                    </button>
+                                                    <ul class="dropdown-menu slidedown dialstatusdd">
+
+                                                        <li>
+                                                            <a href="#">
+                                                                <i class="fa fa-check-circle fa-fw"></i> Available
+                                                            </a>
+                                                        </li>
+                                                       <!-- <li>
+                                                            <a href="#">
+                                                                <i class="fa fa-times fa-fw"></i> Busy
+                                                            </a>
+                                                        </li>-->
+                                        
+                                                        <li class="divider"></li>
+                                                     <!--   <li>
+                                                            <a href="#">
+                                                                <i class="fa fa-sign-out fa-fw"></i> Disconnected
+                                                            </a>
+                                                        </li>-->
+                                                             <li class="active">
+                                                            <a href="#">
+                                                                <i class="fa fa-clock-o fa-fw"></i> Away
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+
+                                                </div>
+                                            </div>
+                                            <div class="widget-content">
+                                                <table class="btntable table table-condensed">
+
+
+                                                    <tr  >
+                                                        <td >
+                                                            <div>
+                                                                <h4><b>Phone Number</b></h4>
+                                                                <input class="form-control input-sm dialinp" id="inputsm" type="text" style="width:175px;font-size:24px;text-align:center" value="" maxlength="10" disabled/>
+                                                            </div>
+                                                        </td>
+
+                                                        <td  style="vertical-align:middle;padding-top:36px" >
+
+                                                            <button type="button" class="btn btn-primary btn dispobtncls" data-toggle="modal" data-target="#agentdispomodal" style="display:none" > <i class="fa fa-list" aria-hidden="true"></i>  Dispostion </button>
+                                                       </td>
+
+                                                        <td  style="vertical-align:middle;padding-top:36px">
+                                                            <button type="button" class="btn btn-success btn connectbtncls" disabled><i class="fa fa-cog" aria-hidden="true"></i> Connect</button>
+
+                                                            <button type="button" class="btn btn-danger btn disconnectbtncls" style="display:none"><i class="fa fa-cog" aria-hidden="true" disabled></i> Disconnect</button>
+
+
+                                              
+                                                        </td>
+
+                                                         <td  style="vertical-align:middle;padding-top:20px">
+                                                                        <div style="text-align:center;color:#DB3833;display:none" class="norecord"><span style="font-size:16px"><i class="fa fa-stop-circle-o" aria-hidden="true"></i>&nbsp;&nbsp;No active records in campaign</span></div>
+                                                              <div style="text-align:center;display:none;color:#337ab7" class="inbcallindicator"><span style="font-size:16px"><i class="fa fa-phone" aria-hidden="true"></i>&nbsp;&nbsp;Inbound Call</span></div>
+                      
+                                                        </td>
+
+                                                    </tr>
+                                                </table>
+
+
+
+
+                                                <table class="btntable table table-condensed" style="text-align:left;margin-bottom:0px !important">
+                                                    <tr>
+
+                                                        <td style="padding-top:20px">
+                                                            <button type="button" class="btn btn-success btn  dialnumbtncls" style="display:none" ><span class="glyphicon glyphicon-earphone" aria-hidden="true">&nbsp;</span>Dial</button>
+                                                        </td>
+
+                                                        <td style="padding-top:20px">
+                                                            <button type="button" class="btn btn-info btn  playbtncls" style="display:none" ><i class="fa fa-play" aria-hidden="true"></i> Play Audio</button>
+                                                        </td>
+
+
+                                                        <td style="padding-top:20px">
+                                                            <button type="button" class="btn btn-danger btn  hangupbtncls" style="display:none" ><i class="fa fa-thumbs-down" aria-hidden="true"></i> Hang Up</button>
+
+                                                        </td>
+                                                        <td style="padding-top:20px">
+                                                            <button type="button" class="btn btn-warning btn bridgebtn" style="display:none"><i class="fa fa-random" aria-hidden="true"></i> Bridge</button>
+                                                        </td>
+
+                                                    </tr>
+
+
+
+
+
+                                                </table>
+
+                      
+                                            </div>
+
+
+
+                                        </div>
+
+                                        
+
+                                    </div>
+                                    <!--end WIDGET dial-->
+
+                                     <div class="col-md-5">
+                                    	<div class="widget" style="width:235px">
+								<div class="widget-header">
+									<span class="heading_med_pad">Dial Pad</span>
+						
+
+								</div>
+								<div class="widget-content">
+                               <div class="dialpad compact dialscpad" style=" float: none !important;margin-left: auto !important; margin-right: auto !important; padding-left:4px  !important;">
+                    
+                      
+                                            <div class="dials dialscpad">
+                                                <ol class="dialscpad">
+                                                    <li class="digits dialscpad" data-digit="1"><p class="dialscpad"><strong class="dialscpad">1</strong></p></li>
+                                                    <li class="digits dialscpad" data-digit="2"><p class="dialscpad"><strong class="dialscpad">2</strong><sup>abc</sup></p></li>
+                                                    <li class="digits dialscpad" data-digit="3"><p class="dialscpad"><strong class="dialscpad">3</strong><sup>def</sup></p></li>
+                                                    <li class="digits dialscpad" data-digit="4"><p class="dialscpad"><strong class="dialscpad">4</strong><sup>ghi</sup></p></li>
+                                                    <li class="digits dialscpad" data-digit="5"><p class="dialscpad"><strong class="dialscpad">5</strong><sup>jkl</sup></p></li>
+                                                    <li class="digits dialscpad" data-digit="6"><p class="dialscpad"><strong class="dialscpad">6</strong><sup>mno</sup></p></li>
+                                                    <li class="digits dialscpad" data-digit="7"><p class="dialscpad"><strong class="dialscpad">7</strong><sup>pqrs</sup></p></li>
+                                                    <li class="digits dialscpad" data-digit="8"><p class="dialscpad"><strong class="dialscpad">8</strong><sup>tuv</sup></p></li>
+                                                    <li class="digits dialscpad" data-digit="9"><p class="dialscpad"><strong class="dialscpad">9</strong><sup>wxyz</sup></p></li>
+                                                    <li class="digits dialscpad" data-digit="*"><p class="dialscpad"><strong class="dialscpad">*</strong></p></li>
+                                                    <li class="digits dialscpad" data-digit="0"><p class="dialscpad"><strong class="dialscpad">0</strong><sup>+</sup></p></li>
+                                                    <li class="digits dialscpad" data-digit="#"><p class="dialscpad"><strong class="dialscpad">#</strong></p></li>
+
+
+
+
+
+
+
+                                                    <!--<li class="digits dialscpad"><p class="dialscpad"><strong class="dialscpad"><i class="fa fa-refresh"></i></strong><sup>Clear</sup></p></li>
+                                                    <li class="digits dialscpad"><p class="dialscpad"><strong class="dialscpad"><i class="fa fa-times"></i></strong><sup>Delete</sup></p></li>
+                                                    <li class="digits pad-action dialscpad"><p class="dialscpad"><strong><i class="fa fa-phone"></i></strong> <sup>Call</sup></p></li>-->
+
+                                                </ol>
+                                            </div>
+                                        </div>
+								</div>
+							</div>
+
+                                    </div>
+
+                                   <!--place holder-->
+                                  <div class="col-md-12 pull-left">
+                              &nbsp;
+                                </div>
+                                  <!--place holder-->
+
+                                </div>
+
+                             
+                                <div class="col-md-5 pull-right">
+                                    <!-- END WIDGET dial  -->
+                                    <!-- WIDGET SIMPLE  -->
+                                    <!-- RECENT FILES -->
+                                  <div class="col-md-12 pull-right">
+                                    <div class="widget ">
+                                        <div class="widget-header heading_xxxxsmall">
+                                            <span class="heading_med_pad"><i class="fa fa-edit"></i> Record Info</span>
+
+                                            <div class="btn-group widget-header-toolbar">
+                                                <button id="enableRecedit" class="btn btn-success btn-sm lockunlockbtn" disabled>Edit</button>
+                                            </div>
+                                        </div>
+                                        <div class="widget-content outboundrecordinfo" style="padding:5px">
+                                            <table id="user" class="table table-bordered table-striped heading_xxxxsmall" style="margin-bottom:0px">
+                                                <tbody>
+
+                                               
+                                                    <tr>
+                                                        <td style="width:25%">Name</td>
+                                                        <td class="td_rec_name"></td>
+                                                    </tr>
+                                                     <tr>
+                                                        <td style="width:30%"><i class="fa fa-envelope-o" aria-hidden="true"></i>&nbsp;Message # | DateTime</td>
+                                                        <td class="td_rec_msgnum"></td>
+                                                    </tr>
+                                                      <tr>
+                                                        <td style="width:30%"><i class="fa fa-phone" aria-hidden="true"></i>&nbsp;Last Attempt # | DateTime </td>
+                                                        <td class="td_rec_attnum"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Title</td>
+                                                        <td class="td_rec_title"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Address</td>
+                                                        <td class="td_rec_addr"></td>
+                                                    </tr>
+                                                     <tr>
+                                                        <td>City</td>
+                                                        <td class="td_rec_city"></td>
+                                                    </tr>
+                                                     <tr>
+                                                        <td>State</td>
+                                                        <td class="td_rec_state"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Zip</td>
+                                                        <td class="td_rec_zip"></td>
+
+                                                    </tr>
+                                                       <tr>
+                                                        <td>Company</td>
+                                                        <td class="td_rec_company"></td>
+
+                                                    </tr>
+                                                   
+                                                    <tr>
+                                                        <td>Primary Phone</td>
+                                                        <td class="td_rec_hp"></td> 
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Primary Ext</td>
+                                                        <td class="td_rec_ext"></td> 
+                                                    </tr>
+                                                    <tr style="display:none">
+                                                        <td>Secondary Phone</td>
+                                                        <td class="td_rec_wp"></td>
+                                                    </tr>
+                                                     <tr style="display:none">
+                                                        <td>Cell Phone</td>
+                                                        <td class="td_rec_cp"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Email</td>
+                                                        <td class="td_rec_email"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Business Type</td>
+                                                        <td class="td_rec_biz"></td>
+                                                    </tr>
+
+                                                     <tr>
+                                                        <td>Appointment DateTime</td>
+
+                                                        <td class="td_appt_dt"></td>
+
+
+                                                    </tr>
+
+
+                                                     <tr>
+                                                        <td colspan="2" style="text-align:center"> <button type="button" class="btn btn-primary btn set_appt_btn" ><i class="fa fa-calendar" aria-hidden="true"></i> Set Appointment</button></td>
+
+
+                                                    </tr>
+
+
+                                                      <tr>
+                                                        
+                                                        <td colspan="2" style="text-align:center;display:none">
+                                                       
+
+                                                             
+
+
+                                                            
+  <div class="form-group" style="width:100%">         
+                           <div class='input-group date' id='datetimepickerappt'  >
+                    <input type='text' class="form-control appt_dt_input"  disabled />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+                </div>
+
+                                                            </td> 
+                                                      </tr>
+                                                     <tr>
+                                                        <td colspan="2">Comments <br />
+
+                                                            <textarea class="com_textarea" maxlength="500" rows="4" disabled></textarea>
+
+                                                        </td>
+
+
+
+
+                                                    </tr>
+                                                   <tr>
+                                                            <TD colspan="2" style="text-align:center;display:none">   
+                                                                 <button type="button" class="btn btn-success btn saveinfobtn" style="display:none;text-align:center"  > <i class="fa fa-calendar-check-o" aria-hidden="true"></i>  Save Info</button>
+                                                        </TD>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                            </div>
+                                          <div class="widget-content inboundrecordinfo" style="display:none">
+                                            <table id="userinb" class="table table-bordered table-striped">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Inbound #</td>
+                                                        <td class="td_rec_did"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Caller #</td>
+                                                        <td class="td_rec_ani"></td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>Name</td>
+                                                        <td class="td_rec_name"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Address</td>
+                                                        <td class="td_rec_addr"></td>
+                                                    </tr>
+                                                     <tr>
+                                                        <td>City</td>
+                                                        <td class="td_rec_city"></td>
+                                                    </tr>
+                                                     <tr>
+                                                        <td>State</td>
+                                                        <td class="td_rec_state"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Zip</td>
+                                                        <td class="td_rec_zip"></td>
+
+                                                    </tr>
+                                                       <tr>
+                                                        <td>Company</td>
+                                                        <td class="td_rec_company"></td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Primary Phone</td>
+                                                        <td class="td_rec_hp"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Secondary Phone</td>
+                                                        <td class="td_rec_wp"></td>
+                                                    </tr>
+                                                    
+                                                    <tr style="display:none">
+                                                        <td>Cell Phone</td>
+                                                        <td class="td_rec_cp"></td>
+                                                    </tr>
+
+                                        
+                                                </tbody>
+                                            </table>
+                                            </div>
+                                        </div>
+                                        <!-- END RECENT FILES -->
+                                    </div>
+
+
+                                </div>
+
+
+                                <div class="col-md-4 pull-right">
+                                
+                                       <div class="col-md-10 pull-right">
+
+                                           <!-- WIDGET WITH PROGRESS BAR -->
+						<!--	
+                            <div class="widget">
+								<div class="widget-header">
+									<h3>Dial Pad</h3>
+						
+
+								</div>
+								<div class="widget-content">
+                               <div class="dialpad compact dialscpad" style=" float: none !important;margin-left: auto !important; margin-right: auto !important; padding-left:4px  !important;width:80%;">
+                    
+                      
+                                            <div class="dials dialscpad">
+                                                <ol class="dialscpad">
+                                                    <li class="digits dialscpad" data-digit="1"><p class="dialscpad"><strong class="dialscpad">1</strong></p></li>
+                                                    <li class="digits dialscpad" data-digit="2"><p class="dialscpad"><strong class="dialscpad">2</strong><sup>abc</sup></p></li>
+                                                    <li class="digits dialscpad" data-digit="3"><p class="dialscpad"><strong class="dialscpad">3</strong><sup>def</sup></p></li>
+                                                    <li class="digits dialscpad" data-digit="4"><p class="dialscpad"><strong class="dialscpad">4</strong><sup>ghi</sup></p></li>
+                                                    <li class="digits dialscpad" data-digit="5"><p class="dialscpad"><strong class="dialscpad">5</strong><sup>jkl</sup></p></li>
+                                                    <li class="digits dialscpad" data-digit="6"><p class="dialscpad"><strong class="dialscpad">6</strong><sup>mno</sup></p></li>
+                                                    <li class="digits dialscpad" data-digit="7"><p class="dialscpad"><strong class="dialscpad">7</strong><sup>pqrs</sup></p></li>
+                                                    <li class="digits dialscpad" data-digit="8"><p class="dialscpad"><strong class="dialscpad">8</strong><sup>tuv</sup></p></li>
+                                                    <li class="digits dialscpad" data-digit="9"><p class="dialscpad"><strong class="dialscpad">9</strong><sup>wxyz</sup></p></li>
+                                                    <li class="digits dialscpad" data-digit="*"><p class="dialscpad"><strong class="dialscpad">*</strong></p></li>
+                                                    <li class="digits dialscpad" data-digit="0"><p class="dialscpad"><strong class="dialscpad">0</strong><sup>+</sup></p></li>
+                                                    <li class="digits dialscpad" data-digit="#"><p class="dialscpad"><strong class="dialscpad">#</strong></p></li>
+
+
+
+
+
+
+
+                                                </ol>
+                                            </div>
+                                        </div>
+								</div>
+							</div>
+						
+ -->
+                                           
+                                           	<!-- END WIDGET WITH PROGRESS BAR -->
+
+
+                                        <!-- MY TODO LIST -->
+                                <!--    <div class="widget widget-scrolling">
+                                        <div class="widget-header">
+                                            <h3><i class="fa fa-calendar"></i> Server Messages</h3>
+                                            <div class="btn-group widget-header-toolbar">
+                                                <a href="#" title="" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up clicktoggeclose"></i></a>
+                                            </div>
+                                        </div>
+
+                                        <div class="widget-content" style="overflow-y: scroll;">
+
+                                            <div class="servermessages"></div>
+
+
+
+
+
+
+                                        </div>
+                                    </div>-->
+                                    <!-- END MY TODO LIST -->
+                                    <!-- appt -->
+
+                                  <!--  <div class="widget widget-scrolling">
+                                        <div class="widget-header">
+                                            <h3><i class="fa fa-calendar"></i> Appointment Calendar</h3>
+                                            <div class="btn-group widget-header-toolbar">
+                                                <a href="#" title="" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up clicktoggeclose"></i></a>
+                                            </div>
+                                        </div>
+
+                                        <div class="widget-content">
+
+
+
+                                            <div class="aptcal">
+
+                                                <div style="overflow:hidden;">
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div id="datetimepicker12"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <button type="button" class="btn btn-success btn-md" style="float: right;">Schedule</button>
+
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>-->
+
+                                    <!-- Eappt -->
+                                    <!--BEGIN softphone -->
+                                       <!--    leave for answer functions display set to non -->
+                                   <div class="widget  widget-scrolling" style="display:none">
+
+                                        <div class="widget-header">
+                                            <span class="heading_med_pad">Softphone Test</span>
+                                            <div class="btn-group widget-header-toolbar">
+                                                <a href="#" title="" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up clicktoggeclose"></i></a>
+                                            </div>
+                                        </div>
+
+                                        <div class="widget-content">
+                                            <div style="height:300px;width:350px; margin: auto;">
+                                                <div class="container-fluid">
+                                                    <div class="clearfix sipStatus">
+                                                        <div id="txtCallStatus" class="pull-right">&nbsp;</div>
+                                                        <div id="txtRegStatus"></div>
+                                                    </div>
+                                                    <div class="form-group" id="phoneUI">
+                                                        <div class="input-group">
+                                                            <div class="input-group-btn">
+                                                                <button class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown" title="Show Keypad">
+                                                                    <i class="fa fa-th"></i>
+                                                                </button>
+                                                                <div id="sip-dialpad" class="dropdown-menu" style="padding-left:10px">
+                                                                    <br />
+                                                                    <button type="button" class="btn btn-default digit" data-digit="1">1<span></span></button>
+                                                                    <button type="button" class="btn btn-default digit" data-digit="2">2<span>ABC</span></button>
+
+
+                                                                    <button type="button" class="btn btn-default digit" data-digit="3">3<span>DEF</span></button>
+
+                                                                    <button type="button" class="btn btn-default digit" data-digit="4">4<span>GHI</span></button>
+                                                                    <button type="button" class="btn btn-default digit" data-digit="5">5<span>JKL</span></button>
+                                                                    <button type="button" class="btn btn-default digit" data-digit="6">6<span>MNO</span></button>
+                                                                    <button type="button" class="btn btn-default digit" data-digit="7">7<span>PQRS</span></button>
+                                                                    <button type="button" class="btn btn-default digit" data-digit="8">8<span>TUV</span></button>
+                                                                    <button type="button" class="btn btn-default digit" data-digit="9">9<span>WXYZ</span></button>
+                                                                    <button type="button" class="btn btn-default digit" data-digit="*">*<span>&nbsp;</span></button>
+                                                                    <button type="button" class="btn btn-default digit" data-digit="0">0<span>+</span></button>
+                                                                    <button type="button" class="btn btn-default digit" data-digit="#">#<span>&nbsp;</span></button>
+                                                                    <div class="clearfix">&nbsp;</div>
+                                                                    <button class="btn btn-success btnCall" title="Send">
+                                                                        <i class="fa fa-play"></i> Send
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                            <input type="text" name="number" id="numDisplay" class="form-control text-center input-sm" value="" placeholder="Enter number..." autocomplete="off" />
+                                                            <div class="input-group-btn input-group-btn-sm">
+                                                                <button class="btn btn-sm btn-primary dropdown-toggle" id="btnVol" data-toggle="dropdown" title="Volume">
+                                                                    <i class="fa fa-fw fa-volume-up"></i>
+                                                                </button>
+                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <input type="range" min="0" max="100" value="100" step="1" id="sldVolume" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="well-sip">
+                                                        <div id="sip-splash" class="text-muted text-center panel panel-default">
+                                                            <div class="panel-body">
+                                                                <h5 class="page-header">
+                                                                    <span class="fa-stack fa-2x">
+                                                                        <i class="fa fa-circle fa-stack-2x text-success"></i>
+                                                                        <i class="fa fa-phone fa-stack-1x fa-inverse"></i>
+                                                                    </span><br>
+                                                                    This is your phone.
+                                                                </h5>
+                                                                <p class="lead"><small>To make a call click connect.</small></p>
+
+                                                            </div>
+                                                        </div>
+                                                        <div id="sip-log" class="panel panel-default hide">
+                                                            <div class="panel-heading">
+                                                                <h5 class="text-muted panel-title">Recent Calls <span class="pull-right"><i class="fa fa-trash text-muted sipLogClear" ></i></span></h5>
+                                                            </div>
+                                                            <div id="sip-logitems" class="list-group" style="display:none">
+                                                                <p class="text-muted text-center">No recent calls from this browser.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal fade" id="mdlError" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+                                                        <div class="modal-dialog modal-sm">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h4 class="modal-title">Sip Error</h4>
+                                                                </div>
+                                                                <div class="modal-body text-center text-danger">
+                                                                    <h3><i class="fa fa-3x fa-ban"></i></h3>
+                                                                    <p class="lead">Sip registration failed. No calls can be handled.</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <!-- End softphone -->
+
+
+
+                                </div>
+                                </div>
+
+
+
+                            </div>
+
+            <!--Dispo  Modal -->
+            <div class="modal fade" id="agentdispomodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel"><i class="fa fa-list" aria-hidden="true"></i>&nbsp; Dispostion <span class="dispotimer" style="padding-left:50px;color:#296EAA"></span><span class="dispoerrordisplay pull-right" style="color:#d43f3a;padding-right:50px;text-align:center"></span></h4> 
+                    </div>
+                    <div class="modal-body">
+                        <div class="dispolbldiv">
+
+                        </div>
+
+                        <div class="callback_div" style="display:none">
+
+                                                                        
+                     <div class="form-group" style="width:50%">         
+                           <div class='input-group date' id='datetimepickercallback'  >
+                    <input type='text' class="form-control callback_dt_input" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+                </div>
+
+                        </div>
+
+                        
+                        <div class="emaildispo_div centerdiv" style="display:none;">
+                                <div class="input-group margin-bottom-sm">
+                                  <span class="input-group-addon "><i class="fa fa-envelope-o fa-fw"></i></span>
+                                  <input class="form-control heading_xxxsmall" type="text" id="dispo_email" placeholder="Email address">
+                                </div>
+                            <br />
+                                <div class="form-group">
+                                <label for="comment" class="heading_xxxsmall">Email :</label>
+                                <textarea class="form-control heading_xxxsmall" rows="5" id="dispo_email_body"></textarea>
+                                </div>
+
+                        </div>
+                           
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary btnsavedispo">Save Dispo</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <!--Dispo Modal End -->
+
+
+
+
+
+
+
+            <!--google maps  Modal -->
+            <div class="modal fade" id="gmapsmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <span class="modal-title heading_xsmaller_head" id="gmapsmodallbl"><i class="fa fa-street-view" aria-hidden="true"></i>&nbsp; Google Maps </span>|<span class="addr_modal_maps heading_xsmaller_head "></span>
+                    </div>
+                    <div class="modal-body">
+             
+
+                                  <div class="google-map" >
+                                                <div id="map-canvasv1" style="width: 100%;height: 400px;background-color: grey;"></div>
+                                                    
+                                            </div>   
+                                    
+                             
+                               
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">close</button>
+       
+                    </div>
+                </div>
+                </div>
+            </div>
+            <!--google maps   End -->
+                      
+
+                <!-- Webrtc error Modal End  -->
+            <div class="modal fade" id="errormodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                                  
+                    <h4 class="modal-title" id="errorModalLabel">Error</h4>
+                    </div>
+                        <div class="modal-body text-center text-danger">
+                                        <h3><i class="fa fa-3x fa-ban"></i></h3>
+                                        <p class="lead">Sip registration failed. No calls can be handled.</p>
+                                    </div>
+                    <div class="modal-footer">
+                   <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>-->
+
+                                               
+                    </div>
+                </div>
+                </div>
+            </div>
+            <!--Webrtc error Modal End -->
+
+
+                 
+
+                 
+
+ </div>
+
+ 

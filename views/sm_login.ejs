@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<!--[if IE 9 ]><html class="ie ie9" lang="en" class="no-js"> <![endif]-->
+<!--[if !(IE)]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+
+<head>
+	<title>Login | Smart Contact</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="description" content="Smart Contact">
+	<meta name="author" content="Smart Contact">
+	<!-- CSS -->
+	<link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/main.css" rel="stylesheet" type="text/css">
+	<!--[if lte IE 9]>
+		<link href="assets/css/main-ie.css" rel="stylesheet" type="text/css" />
+		<link href="assets/css/main-ie-part2.css" rel="stylesheet" type="text/css" />
+	<![endif]-->
+	<!-- Fav and touch icons -->
+	 
+
+    <style>
+      
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; margin: 0; 
+  margin: 0; 
+}
+body {
+			background-color: #ffffff;
+             
+			}
+    </style>
+</head>
+
+<body>
+
+
+    
+	
+	<div class="wrapper full-page-wrapper page-auth page-login text-center">
+       
+		<div class="inner-page" style="padding-top:165px">
+			
+			
+                   <div class="centerdiv"   >
+				
+                       <div class="login-box center-blocklg" style="background:#5c41a2 !important; text-align:center" >
+				
+      <br> <IMG SRC="assets/img/scwhite.png" alt="Smart Contact smiling monitor"   style="width:300px;" class="centerdiv"  /> <br><br><br>
+	  
+				<form class="form-horizontal centerdiv" role="form"  action="scuser" method="post" style="width:300px" > 
+					
+					<div class="form-group" style="width:325px">
+				
+	   
+						<label for="username" class="control-label sr-only">Username</label>
+							
+
+						<div class="col-sm-12">
+							<div class="input-group">
+                                <input type="text" placeholder="username" id="username" name = "username" class="form-control" value="">
+								<span class="input-group-addon"><i class="fa fa-user fa-lg" style="width:35px"></i></span>
+							</div>
+						</div>
+					</div>
+				
+					<div class="form-group" style="width:325px">
+					<label for="password" class="control-label sr-only">Password</label>
+                        		<div class="col-sm-12">
+							<div class="input-group">
+                                <input type="password" placeholder="password" id="password" name = "password" class="form-control" value="">
+                                <span class="input-group-addon"><i class="fa fa-lock fa-lg" style="width:35px"></i></span>
+							</div>
+						</div>
+					</div>
+                 
+                    <div class="centerdiv">
+                             <input type="hidden" placeholder="StationID" id="stationID" name="stationid" class="form-control nospinzone" value="-1">
+
+
+					<label class="fancy-checkbox">
+						<input type="checkbox">
+						<span style="color:#fff;font-size:14px;font-family:latolight;padding-bottom:10px; ">Remember me</span>
+					</label>
+					<button id="login_btn" class="btn btn-custom-primary btn-block btn-auth centerdiv"  style="background:#ffffff !important; width:140px; border-color:#ffffff !important; text-align: center;"><span style="color:#5c41a2" class="heading_enroll_bottom_smaller"><strong>Login</strong></span></button>
+				</div>
+				
+				</form>
+                <div class="errorlogin centerdiv" style="text-align: center;padding-top:20px;display:none"><span class="errspan centerdiv" style="color:#d43f3a;font-size:18px;font-weight:bold"></span></div>
+				<div class="links centerdiv">
+
+					
+
+					<p><a href="#" style="color:#fff" class="question_enroll_txt_x">Forgot Username or Password?</a></p>
+					<!--<p><a href="#">Create New Account</a></p>-->
+				</div>
+			</div>
+            </div>
+		</div>
+     <%include sc_footer_user.ejs %>
+	</div>
+
+	<!-- Javascript -->
+	<script src="assets/js/jquery/jquery-2.1.0.min.js"></script>
+	<script src="assets/js/bootstrap/bootstrap.js"></script>
+	<script src="assets/js/plugins/modernizr/modernizr.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+
+
+    <script type="text/javascript">
+  
+
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+
+        $(document).ready(function () {
+            
+
+            if (getParameterByName('err') != '')
+            {
+
+                $('.errspan').html(function () {
+
+
+                    $('.errorlogin').fadeIn(1000).fadeOut(1000).fadeIn(1000).fadeOut(1000).fadeIn(1000);
+
+                   return getParameterByName('err')
+                });
+            }
+
+        });
+
+
+
+
+
+        </script>
+
+</body>
+
+</html>

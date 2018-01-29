@@ -1,0 +1,48 @@
+﻿[
+    {
+        "campaignid": 22367,
+        "campaignname": "Xerox Of Atlanta Prospect Job 1",
+        "campaignstatus": "Waiting for recordings"
+    },
+    {
+        "campaignid": 22389,
+        "campaignname": "Xerox ALT remarketing -- Tom Quasimodo",
+        "campaignstatus": "Waiting for Data"
+    },
+    {
+        "campaignid": 22854,
+        "campaignname": "NY Scanner Sales",
+        "campaignstatus": "Ready to Run"
+    },
+    {
+        "campaignid": 22565,
+        "campaignname": "Eastern Region",
+        "campaignstatus": "Running"
+    },
+    {
+        "campaignid": 22125,
+        "campaignname": "Northern Region",
+        "campaignstatus": "Running"
+    },
+    {
+        "campaignid": 22956,
+        "campaignname": "Southern Region 5",
+        "campaignstatus": "Waiting for recordings"
+    }
+    ,
+    {
+        "campaignid": 22766,
+        "campaignname": "Southern Region 2",
+        "campaignstatus": "Running"
+    },
+        {
+        "campaignid": 22367,
+        "campaignname": "Xerox Of Atlanta Prospect Job 1",
+        "campaignstatus": "Waiting for recordings"
+    },
+    {
+        "campaignid": 22389,
+        "campaignname": "Xerox ALT remarketing -- Tom Quasimodo",
+        "campaignstatus": "Waiting for Data"
+    }
+]

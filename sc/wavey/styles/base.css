@@ -1,0 +1,61 @@
+
+.controls {
+	padding: 0 3px;
+}
+.controls > * > * {
+	margin: 5px 2px;
+}
+
+.controls i {
+	font-size: 16px;
+	height: 16px;
+}
+/* TODO: specify buttons as image buttons instead of using .document-controls? */
+/* but in the retro themes all the buttons are iconic, none are "image buttons" as such */
+.document-controls .dropdown-button {
+	padding: 3px 4px;
+}
+.menu-item {
+	padding: 2px 5px;
+}
+
+.track {
+	padding: 5px;
+}
+
+.audio-clip {
+	fill: none;
+	stroke-linejoin: bevel;
+	stroke-width: 1.5px;
+}
+.muted .audio-clip,
+.muted .midi-notes {
+	opacity: 0.3;
+}
+
+.beat-marking {
+	border-left: 1px solid currentColor;
+	height: 100%;
+	opacity: 0.5;
+}
+.beat-marking.sub {
+	height: 50%;
+	opacity: 0.3;
+}
+
+.position-indicator {
+	border-left: 1px solid currentColor;
+	opacity: 0.5;
+}
+/* This would be if we were doing an Audacity sort of thing.
+.audio-editor:not(.playing) .position-indicator {
+	opacity: 0;
+}
+*/
+
+.audio-editor button:focus {
+	outline: 0;
+}
+.audio-editor {
+	font-family: sans-serif;
+}

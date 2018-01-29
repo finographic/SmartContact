@@ -1,0 +1,6 @@
+
+html, body, #app, .audio-editor {
+	margin: 0;
+	height: 100%;
+	overflow: hidden;
+}

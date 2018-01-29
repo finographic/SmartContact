@@ -1,0 +1,45 @@
+﻿[
+    {
+        "campaignid": 19538,
+        "campaignname": "Xerox Of Atlanta Prospect Job 5",
+        "campaignstatus": "Completed"
+    },
+    {
+        "campaignid": 19622,
+        "campaignname": "Xerox ALT remarketing -- Tom Quasimodo",
+        "campaignstatus": "Completed"
+    },
+    {
+        "campaignid": 19742,
+        "campaignname": "NY Scanner Sales",
+        "campaignstatus": "Completed"
+    },
+    {
+        "campaignid": 19769,
+        "campaignname": "Eastern Region",
+       "campaignstatus": "Completed"
+    },
+    {
+        "campaignid": 19873,
+        "campaignname": "Xerox tradeshow follow up",
+        "campaignstatus": "Completed"
+    }
+    ,
+    {
+        "campaignid": 19632,
+        "campaignname": "Remarking LA",
+    "campaignstatus": "Completed"
+    }
+    ,
+    {
+        "campaignid": 19326,
+        "campaignname": "Soft Bank LA",
+      "campaignstatus": "Completed"
+    }
+     ,
+      {
+        "campaignid": 19287,
+        "campaignname": "Soft Bank NY",
+"campaignstatus": "Completed"
+    }
+]

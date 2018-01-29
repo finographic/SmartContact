@@ -1,0 +1,237 @@
+﻿        <!-- TOP BAR -->
+             <div class="top-bar navbar-fixed-top" style="background:#5c41a2">
+            <div class="container">
+                <div class="clearfix">
+                    <a href="#" class="pull-left toggle-sidebar-collapse"><i class="fa fa-bars fa-lg" style="padding-left:5px;"></i></a>
+                                       <!-- logo -->
+                    <div class="pull-left left logo" style="vertical-align:middle;text-align: center;padding-left:8px"> <IMG SRC="assets/img/scfooter.png" />
+                    &nbsp;&nbsp;<span style="font-size:18px;vertical-align:middle;text-align: center;padding-top:5px">&nbsp;  </span>
+                                  
+
+                    </div>
+                    <!-- end logo -->
+                    <div class="pull-right right">
+                        <!-- search box -->
+                        <!--	<div class="searchbox">
+                            <div id="tour-searchbox" class="input-group">
+                                <!--<input type="search" class="form-control" placeholder="enter keyword here...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                                </span>
+                            </div>
+                        </div>-->
+                        <!-- end search box -->
+                        <!-- top-bar-right -->
+                        <div class="top-bar-right">
+                            <!--<button type="button" id="start-tour" class="btn btn-link"><i class="fa fa-refresh"></i> Start Tour</button>
+                                <button type="button" id="global-volume" class="btn btn-link btn-global-volume"><i class="fa"></i></button>-->
+                            <div class="notifications">
+                                <ul>
+                                    <!-- notification: inbox -->
+                                    <li class="notification-item inbox">
+                                        <div class="btn-group" style="display:none">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                <i class="fa fa-envelope"></i><span class="count">2</span>
+                                                <span class="circle"></span>
+                                            </a>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li class="notification-header">
+                                                    <em>You have 2 unread messages</em>
+                                                </li>
+                                                <li class="inbox-item clearfix">
+                                                    <a href="#">
+                                                        <div class="media">
+                                                            <div class="media-left">
+                                                                <img class="media-object" src="assets/img/user1.png" alt="Antonio">
+                                                            </div>
+                                                            <div class="media-body">
+                                                                <h5 class="media-heading name">Antonius</h5>
+                                                                <p class="text">The problem just happened this morning. I can't see ...</p>
+                                                                <span class="timestamp">4 minutes ago</span>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="inbox-item unread clearfix">
+                                                    <a href="#">
+                                                        <div class="media">
+                                                            <div class="media-left">
+                                                                <img class="media-object" src="assets/img/user2.png" alt="Antonio">
+                                                            </div>
+                                                            <div class="media-body">
+                                                                <h5 class="media-heading name">Michael</h5>
+                                                                <p class="text">Hey dude, cool theme!</p>
+                                                                <span class="timestamp">2 hours ago</span>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="inbox-item unread clearfix">
+                                                    <a href="#">
+                                                        <div class="media">
+                                                            <div class="media-left">
+                                                                <img class="media-object" src="assets/img/user3.png" alt="Antonio">
+                                                            </div>
+                                                            <div class="media-body">
+                                                                <h5 class="media-heading name">Stella</h5>
+                                                                <p class="text">Ok now I can see the status for each item. Thanks! :D</p>
+                                                                <span class="timestamp">Oct 6</span>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="inbox-item clearfix">
+                                                    <a href="#">
+                                                        <div class="media">
+                                                            <div class="media-left">
+                                                                <img class="media-object" src="assets/img/user4.png" alt="Antonio">
+                                                            </div>
+                                                            <div class="media-body">
+                                                                <h5 class="media-heading name">Jane Doe</h5>
+                                                                <p class="text"><i class="fa fa-reply"></i> Please check the status of your ...</p>
+                                                                <span class="timestamp">Oct 2</span>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="inbox-item clearfix">
+                                                    <a href="#">
+                                                        <div class="media">
+                                                            <div class="media-left">
+                                                                <img class="media-object" src="assets/img/user5.png" alt="Antonio">
+                                                            </div>
+                                                            <div class="media-body">
+                                                                <h5 class="media-heading name">John Simmons</h5>
+                                                                <p class="text"><i class="fa fa-reply"></i> I've fixed the problem :)</p>
+                                                                <span class="timestamp">Sep 12</span>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="notification-footer">
+                                                    <a href="#">View All Messages</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <!-- end notification: inbox -->
+                                    <!-- notification: general -->
+                                    <li class="notification-item general" style="display:none">
+                                        <div class="btn-group">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                <i class="fa fa-bell"></i><span class="count notifi"><i class="fa fa-circle-o-notch fa-spin fa fa-fw"></i></span>
+                                                <span class="circle"></span>
+                                            </a>
+                                            <ul class="dropdown-menu" role="menu" id="ddbell">
+                                                <li class="notification-header">
+                                                    <em>You have <span class="notifi"><i class="fa fa-circle-o-notch fa-spin fa fa-fw"></i></span> notifications TOP 5</em>
+                                                </li>
+                                             
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <!-- end notification: general -->
+                                </ul>
+                            </div>
+                            <!-- logged user and the menu -->
+                            <div class="logged-user">
+                               <i class="fa fa-connectdevelop fa-lg" style="color: #f4df42"></i><span class="heading_xsmaller_head" style="color:white">ACD Status :</span><span  class="connect_status heading_xsmaller_head" style="color:white" >none</span>
+                                            <span class="heading_xsmaller_head" style="color:white">|</span>
+                                <i class="fa fa-phone-square green-font  fa-lg" style="color: #1D92AF"></i><span class="heading_xsmaller_head" style="color:white">Campaign :</span><span  class="skilldispname heading_xsmaller_head" style="color:white" >none</span>
+                                            <span class="heading_xsmaller_head" style="color:white">|</span>  <i class="fa fa-phone fa-lg" style="color: #1D92AF"></i>  <span  class="call_disp_ct heading_xsmaller_head" style="color:white">0</span><span class="heading_xsmaller_head" style="color:white">|</span>
+                                           <i class="fa fa-envelope fa-lg" style="color: #CE7B11"></i>  <span  class="sm_disp_ct heading_xsmaller_head" style="color:white">0</span><span class="heading_xsmaller_head"></span>&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; 
+                                <div class="btn-group">
+                                    <a href="#" class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+                                         
+                                         <i class="fa fa-user fa-lg" aria-hidden="true"></i><span class="name heading_xsmaller_head"><%= JSON.parse(user).first_name%>.<%= JSON.parse(user).last_name.substring(0, 1);%></span><span class="heading_xsmaller_head" style="color:white">|</span>
+                                             <i class="fa fa-desktop fa-lg" ></i>&nbsp;<span class="heading_xsmaller_head"> [<%= JSON.parse(user).end_point_ext %>]</span> <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu">
+                                       <!-- <li>
+                                            <a href="#">
+                                                <i class="fa fa-user"></i>
+                                                <span class="text">Profile</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-cog"></i>
+                                                <span class="text">Settings</span>
+                                            </a>
+                                        </li>-->
+                                        <li>
+                                            <a href="/logout">
+                                                <i class="fa fa-power-off"></i>
+                                                <span class="text">Logout</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- end logged user and the menu -->
+                        </div>
+                        <!-- end top-bar-right -->
+                    </div>
+                </div>
+            </div>
+            <!-- /container -->
+        </div>
+        <!-- END TOP BAR -->
+        <!-- LEFT SIDEBAR -->
+        <div id="left-sidebar" class="left-sidebar minified expanded sidebar-hide-left">
+            <div class="sidebar-minified js-toggle-minified" style="text-align:center;vertical-align:middle">
+                <i class="fa fa-cog fa-2x menuopenclose" style="color:#7ec452;font-size:27px"></i>
+            </div>
+            <!-- main-nav -->
+            <div class="sidebar-scroll">
+                <nav class="main-nav heading_xsmaller_head">
+                    <ul class="main-menu" style="list-style: none;">
+                      <li class="clkmenu btn_mnu_agentdashboard" >
+                            <a href="#" class="js-sub-menu-toggle startpadmenu btn_mnu_agentdashboard">
+                                <i class="fa fa-dashboard fa-fw dashiconsize" ></i><span class="text mnut"> Dashboard</span>
+                 
+                            </a>
+
+                        </li>
+                        <li class="active clkmenu btn_mnu_agentdashboard">
+                            <a href="#" class="js-sub-menu-toggle startpadmenu btn_mnu_agentcontent">
+                                <i class="fa fa-user dashiconsize"></i><span class="text mnut">Agent</span>
+                              
+                            </a>
+
+                        </li>
+                        <li class="clkmenu btn_mnu_agentdashboard">
+                            <a href="#" class="js-sub-menu-toggle startpadmenu btn_mnu_chatcontent">
+                                <i class="fa fa-comments-o dashiconsize"></i><span class="text mnut">Internal Chat</span>
+                              
+                            </a>
+                        </li>
+                      <!--  <li class="clkmenu btn_mnu_agentdashboard">
+                            <a href="#" class="js-sub-menu-toggle startpadmenu btn_mnu_srvexp">
+                                <i class="fa fa-clipboard fa-fwd dashiconsize"></i><span class="text mnut">Survey Expand</span>
+                   
+                            </a>
+
+                        </li>-->
+
+                        <li class="clkmenu btn_mnu_agentdashboard trustMnuhide" style="display:none">
+                            <a href="#" class="js-sub-menu-toggle startpadmenu btn_mnu_trustcontent">
+                                <i class="fa fa-thumbs-o-up dashiconsize"></i><span class="text mnut">Trust Builder</span>
+                      
+                            </a>
+                        </li>
+
+                      <!--  <li class="clkmenu btn_mnu_agentdashboard">
+                            <a href="#" class="js-sub-menu-toggle startpadmenu btn_mnu_contactcontent">
+                                <i class="fa fa-envelope-o dashiconsize"></i><span class="text mnut">Contact Messages</span>
+              
+                            </a>
+                        </li>-->
+                    </ul>
+                </nav>
+                <!-- /main-nav -->
+            </div>
+        </div>
+        <!-- END LEFT SIDEBAR -->
+
+

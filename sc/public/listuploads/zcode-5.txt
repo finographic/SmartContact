@@ -1,0 +1,91 @@
+zonelookup(zipcode_to_timezone.lookup((/(^\d{5}$)|(^\d{5}-\d{4}$)/.test(((recreject(jsonObj.contact_zip.substring(0, 9), 2)[0].length == 4) ? '0' + recreject(jsonObj.contact_zip.substring(0, 9), 2)[0] : recreject(jsonObj.contact_zip.substring(0, 9), 2)[0])) || '') != '' ? (recreject(jsonObj.contact_zip.substring(0, 9), 2)[0].length == 4) ? '0' + recreject(jsonObj.contact_zip.substring(0, 9), 2)[0] : recreject(jsonObj.contact_zip.substring(0, 9), 2)[0] : 0))
+
+
+
+//import procedures and vaildations 
+var zonelookup = function (zonename) {
+    var tzout = 0;
+    
+    switch (zonename) {
+        case 'America/New_York':
+            tzout = -5;
+            break;
+        case 'America/Chicago':
+            tzout = -5;
+            break;
+        case 'America/Denver':
+            tzout = -7;
+            break;
+        case 'America/Los_Angeles':
+            tzout = -8;
+            break;
+        case 'America/Kentucky/Louisville':
+            tzout = -5;
+            break;
+        case 'America/Indiana/Indianapolis':
+            tzout = -5;
+            break;
+        case 'America/Detroit':
+            tzout = -5;
+            break;
+        case 'America/Boise':
+            tzout = -7;
+            break;
+        case 'America/Phoenix':
+            tzout = -7;
+            break;
+        case 'America/Anchorage':
+            tzout = -9;
+            break;
+        case 'Pacific/Honolulu':
+            tzout = -10;
+            break;
+        case 'America/Indiana/Knox':
+            tzout = -6;
+            break;
+        case 'America/Indiana/Winamac':
+            tzout = -5;
+            break;
+        case 'America/Indiana/Vevay':
+            tzout = -5;
+            break;
+        case 'America/Indiana/Marengo':
+            tzout = -5;
+            break;
+        case 'America/Indiana/Vincennes':
+            tzout = -5;
+            break;
+        case 'America/Indiana/Tell_City':
+            tzout = -6;
+            break;
+        case 'America/Indiana/Petersburg':
+            tzout = -6;
+            break;
+        case 'America/Menominee':
+            tzout = -6;
+            break;
+        case 'America/Shiprock':
+            tzout = -7;
+            break;
+        case 'America/Nome':
+            tzout = -9;
+            break;
+        case 'America/Juneau':
+            tzout = -9;
+            break;
+        case 'America/Kentucky/Monticello':
+            tzout = -5;
+            break;
+        case 'America/North_Dakota/Center':
+            tzout = -6;
+            break;
+        case 'America/Yakutat':
+            tzout = -9;
+            break;
+        default:
+            tzout = 0;
+    }
+    return tzout;
+
+
+}

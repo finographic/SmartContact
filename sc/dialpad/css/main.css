@@ -1,0 +1,231 @@
+html.dialscpad, body.dialscpad, div.dialscpad, span.dialscpad, applet.dialscpad, object.dialscpad, iframe.dialscpad, h1.dialscpad, h2.dialscpad, h3.dialscpad, h4.dialscpad, h5.dialscpad, h6.dialscpad, p.dialscpad, blockquote.dialscpad, pre.dialscpad, a.dialscpad, abbr.dialscpad, acronym.dialscpad, address.dialscpad, big.dialscpad, cite.dialscpad, code.dialscpad, del.dialscpad, dfn.dialscpad, em.dialscpad, img.dialscpad, ins.dialscpad, kbd.dialscpad, q.dialscpad, s.dialscpad, samp.dialscpad, small.dialscpad, strike.dialscpad, strong.dialscpad, sub.dialscpad, sup.dialscpad, tt.dialscpad, var.dialscpad, b.dialscpad, u.dialscpad, i.dialscpad, center.dialscpad, dl.dialscpad, dt.dialscpad, dd.dialscpad, ol.dialscpad, ul.dialscpad, li.dialscpad, fieldset.dialscpad, form.dialscpad, label.dialscpad, legend.dialscpad, table.dialscpad, caption.dialscpad, tbody.dialscpad, tfoot.dialscpad, thead.dialscpad, tr.dialscpad, th.dialscpad, td.dialscpad, article.dialscpad, aside.dialscpad, canvas.dialscpad, details.dialscpad, embed.dialscpad, figure.dialscpad, figcaption.dialscpad, footer.dialscpad, header.dialscpad, hgroup.dialscpad, menu.dialscpad, nav.dialscpad, output.dialscpad, ruby.dialscpad, section.dialscpad, summary.dialscpad, time.dialscpad, mark.dialscpad, audio.dialscpad, video.dialscpad  {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+html.dialscpad {
+    line-height: 1;
+}
+
+ol.dialscpad, ul.dialscpad {
+    list-style: none;
+}
+
+table.dialscpad  {
+    border-collapse: collapse;
+    border-spacing: 0;
+     font-size:15px !important;font-family: latolight !important; font-weight:bold !important;
+}
+
+caption.dialscpad , th.dialscpad  td.dialscpad  {
+    text-align: left;
+    font-weight: normal;
+    vertical-align: middle;
+}
+
+q.dialscpad , blockquote.dialscpad  {
+    quotes: none;
+}
+
+    q:before, q:after, blockquote:before, blockquote:after {
+        content: "";
+        content: none;
+    }
+
+a img.dialscpad  {
+    border: none;
+}
+
+article.dialscpad, aside.dialscpad, details.dialscpad, figcaption.dialscpad, figure.dialscpad, footer.dialscpad, header.dialscpad, hgroup.dialscpad, main.dialscpad, menu.dialscpad, nav.dialscpad, section.dialscpad, summary.dialscpad  {
+    display: block;
+}
+
+html.dialscpad, button.dialscpad, input.dialscpad, select.dialscpad, textarea.dialscpad  {
+    color: #222;
+}
+
+html.dialscpad  {
+        font-size:15px !important;font-family: latolight !important; font-weight:bold !important;
+
+    line-height: 1.4;
+}
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+hr.dialscpad  {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+audio.dialscpad, canvas.dialscpad, img.dialscpad, video.dialscpad  {
+    vertical-align: middle;
+}
+
+fieldset.dialscpad  {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea.dialscpad  {
+    resize: vertical;
+}
+
+.browsehappy {
+    margin: 0px 0px 10px 0px;
+    padding: 0.5em 0em;
+    background: #aac739;
+    color: #4f4f4f;
+    text-align: center;
+}
+
+body.dialscpad  {
+    background: #fff;
+    color: #000;
+}
+
+.dialpad .number {
+    position: relative;
+    z-index: 2;
+    padding: 15px 20px;
+    color: #4d4d4d;
+    font-weight: 300;
+    font-size: 40px;
+    background: #fff;
+    height: 78px;
+}
+
+.dialpad .dials {
+    margin: -1px 0 0 -1px;
+    background: #5c41a2; /* Old Browsers */
+
+    cursor: pointer;
+}
+
+    .dialpad .dials:before, .dialpad .dials:after {
+        content: "\0020";
+        display: block;
+        height: 0;
+        overflow: hidden;
+    }
+
+    .dialpad .dials:after {
+        clear: both;
+    }
+
+    .dialpad .dials .digits {
+        float: left;
+        width: 33.33%;
+                 font-size:15px !important;font-family: latolight !important; font-weight:bold !important;
+    }
+
+        .dialpad .dials .digits p {
+            font-weight: 600;
+            padding: 3px 10px;
+            border-top: 1px solid #5c41a2 ;
+            border-right: 1px solid #000;
+            border-bottom: 1px solid #000;
+            border-left: 1px solid #5c41a2 ;
+        }
+
+            .dialpad .dials .digits p strong {
+                font-size: 50px;
+                margin-right: 8px;
+                color: #fff;
+            }
+
+        .dialpad .dials .digits:active {
+            background: #00caf2;
+            border-top-color: #b2f2ff;
+        }
+
+
+
+    .compact .dials .digits p strong {
+        font-size: 18px;
+    }
+
+    .compact .dials .digits p sup {
+        text-transform: uppercase;
+        color: #c1c1c1;
+    }
+
+.compact .dials .pad-action {
+    background: #093;
+}
+
+    .compact .dials .pad-action:active {
+        background: #0c3;
+    }
+
+.ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    *text-indent: -9999px;
+}
+
+    .ir:before {
+        content: "";
+        display: block;
+        width: 0;
+        height: 150%;
+    }
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+    .visuallyhidden.focusable:active, .visuallyhidden.focusable:focus {
+        clip: auto;
+        height: auto;
+        margin: 0;
+        overflow: visible;
+        position: static;
+        width: auto;
+    }
+
+.invisible {
+    visibility: hidden;
+}
+
+.clearfix:before, .clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}

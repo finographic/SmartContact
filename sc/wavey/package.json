@@ -1,0 +1,60 @@
+{
+  "name": "wavey",
+  "version": "0.0.0",
+  "description": "Edit audio simply",
+  "author": "Isaiah Odhner <isaiahodhner@gmail.com>",
+  "license": "MIT",
+  "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/1j01/wavey.git"
+  },
+  "bugs": {
+    "url": "http://github.com/1j01/wavey/issues"
+  },
+  "dependencies": {
+    "nw": "^0.12.3"
+  },
+  "devDependencies": {
+    "async": "^2.0.1",
+    "browserify": "^13.1.0",
+    "chai": "^3.5.0",
+    "coffee-script": "^1.11.1",
+    "coffeeify": "^2.0.1",
+    "easingjs": "^1.0.1",
+    "elementary.css": "^2.0.2",
+    "gulp": "^3.9.1",
+    "gulp-sourcemaps": "^2.1.1",
+    "gulp-util": "^3.0.7",
+    "localforage": "^1.4.3",
+    "mocha": "^3.0.2",
+    "nw-dev": "^1.3.1",
+    "postcss": "^5.2.4",
+    "postcss-advanced-variables": "^1.2.2",
+    "postcss-color-function": "^2.0.1",
+    "postcss-debug": "^0.4.2",
+    "postcss-easy-import": "^1.0.1",
+    "postcss-extend": "^1.0.5",
+    "postcss-import": "^7.1.3",
+    "postcss-url": "^5.1.2",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1",
+    "react-script": "^2.0.5",
+    "sugarss": "^0.1.6",
+    "sw-precache": "^4.1.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.7.0",
+    "webmidi": "^2.0.0-beta.1"
+  },
+  "scripts": {
+    "start": "nw",
+    "dev": "gulp",
+    "watch": "gulp",
+    "test": "mocha --compilers coffee:coffee-script/register"
+  },
+  "window": {
+    "icon": "images/icons/48.png",
+    "toolbar": false
+  }
+}

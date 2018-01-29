@@ -1,0 +1,1911 @@
+﻿<!DOCTYPE html>
+<!--[if IE 9 ]><html class="ie ie9" lang="en" class="no-js"> <![endif]-->
+<!--[if !(IE)]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+
+<head>
+
+
+    <title>Smart Contact - User</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="Smart Contact - Agent">
+    <meta name="author" content="Smart Contact - Agent">
+    <%include sc_css.ejs%>  
+    <link href="bootstrap-datetimepicker-master\build\css\bootstrap-datetimepicker.css"  rel="stylesheet" type="text/css" />
+        <link href="fullcalendar-3.1.0\fullcalendar.min.css"  rel="stylesheet" type="text/css" />
+
+    <link href='fullcalendar-3.1.0\fullcalendar.print.min.css' rel='stylesheet' media='print' />
+        <link rel="stylesheet" href="font-awesome-animation.css">
+</head>
+
+<script>
+
+    var sipconfigdb = '<%- user%>'
+    console.log('<%- user%>');
+
+
+    sipconfigdb = JSON.parse(sipconfigdb);
+
+    console.log(sipconfigdb);
+    console.log(sipconfigdb.end_point_ext);
+
+
+</script>
+
+
+
+<body class="topnav-fixed forms-inplace-editing flash-alert">
+    <!-- WRAPPER -->
+    <div id="wrapper" class="wrapper nopad_body">
+        <!-- Menu Start partial template -->
+        <%include scagent_menu.ejs %>
+        <!-- Menu end partial template -->
+
+
+
+        <!-- MAIN CONTENT WRAPPER -->
+        <div id="main-content-wrapper" class="content-wrapper expanded expanded-full">
+            <div class="content" style="padding-left: 10px">
+               <!-- <div class="main-header"  style="padding-bottom:0px !important; margin-bottom:0px !important">
+            removed header due to screen space
+              include scagent_header.ejs
+                </div>-->
+                    <%-include scagent_dashboard.ejs %>
+                    <%-include scagent_agent.ejs%>
+                    <%-include scagent_trust.ejs%>
+                    <%-include scagent_chat.ejs %>
+                    <%-include scagent_contact.ejs %>
+                    <%-include scagent_srvexp.ejs %>
+
+            </div>
+
+
+        </div>
+        
+	   
+        
+                             <!-- Set appt modal  -->
+            <div class="modal fade" id="setagentappt_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content" >
+                    <div class="modal-header">
+                    <h4 class="modal-title" id="setagenttitle">Set Appointment</h4>
+                    </div>
+                        <div class="modal-body">
+
+
+                            <div class="appt_displayin heading_xsmall">
+
+                                
+                            </div>
+                            <div id="appt_div">
+                   <div class="calendar_appt centerdiv" style="width:95%" id="calendar_appt_div"></div>
+                            
+                         <div class="centerdiv text-ct tz_appt_select_div"  style="padding-top:25px;display:none">
+                                   <span class="heading_xsmaller">Customer Time Zone | </span><select name="dd_tz_appt" id="dd_tz_appt" class="dd_tz_appt valdropdown heading_xsmaller" style="font-size:16px;""> 
+										                                                     <option value="-5">Eastern</option>
+                                                                                             <option value="-6">Central</option>
+                                                                                            <option value="-7">Mountain</option>
+                                                                                            <option value="-8">Pacific</option>
+                                                                                             </select>
+                                
+                             </div>
+                            
+                            <div id="appt_timedisp" class="text-ct heading_lg" style="padding-top:20px;" ></div>
+                                </div>
+                        </div>
+                    <div class="modal-footer">
+                                  <button type="button" class="btn btn-success btn btnset_appt_modal pull-left" style="display:none"><i class="fa fa-calendar" aria-hidden="true"></i> Set Appointment</button>      
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                 
+                    </div>
+                </div>
+                </div>
+            </div>
+            <!--appt modal  -->
+
+                    <%include sc_footer.ejs%>
+                    <%include sc_js_include.ejs%>
+
+
+    </div>
+    <!-- END WRAPPER -->
+
+
+
+
+
+
+    <script>
+        //getdaylight savings 
+
+
+
+
+        Date.prototype.stdTimezoneOffset = function () {
+            var jan = new Date(this.getFullYear(), 0, 1);
+            var jul = new Date(this.getFullYear(), 6, 1);
+            return Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset());
+        }
+
+        Date.prototype.dst = function () {
+            return this.getTimezoneOffset() < this.stdTimezoneOffset();
+        }
+
+
+        function isValidEmailAddress(emailAddress) {
+            var pattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
+            return pattern.test(emailAddress);
+        };
+
+
+        $(document).ready(function () {
+          
+
+           
+
+
+
+            function destorycal(cb) {
+            
+            
+                $('#calendar_appt_div').fullCalendar('destroy');
+
+                cb();
+
+            
+            }
+
+
+            var prev_eventobj;
+
+
+            function loadcal_sc(skill_wk_in, dow_in, tz_in)
+
+            {
+               
+                console.log(tz_in);
+             $('#calendar_appt_div').fullCalendar({
+              header: {
+                  left: 'month',
+                  center: 'title',
+                  right: 'prev, next, today'
+              },
+              selectable: true,
+              allDaySlot: false,
+              allDayDefault: false,
+              editable: false,
+              droppable: false,
+              timezone: false,
+              defaultDate: moment().format('YYYY-MM-DD'),
+              dayClick: function (date, jsEvent, view) {
+
+                  $('.fc-next-button').hide();
+                  $('.fc-prev-button').hide();
+                  $('.fc-today-button').hide();
+                  
+                  console.log('View');
+                  console.log($(this).attr("style"));
+                  console.log($(this).attr("style").indexOf("background-color: rgb(105, 188, 105)"));
+                
+                  
+                  if ($(this).attr("style").indexOf("background-color: rgb(105, 188, 105)") != -1) {
+                      if (view.name != 'month')
+                          return;
+
+
+                      console.log('click day month');
+                      if (view.name == 'month') {
+                          $('#calendar_appt_div').fullCalendar('changeView', 'agendaDay');
+                          $('#calendar_appt_div').fullCalendar('gotoDate', date);
+                          
+                          socket.emit('appt_day_req', skill_wk_in, date, function (data) {
+                              $('#calendar_appt_div').fullCalendar('addEventSource', data[0].events)
+                          });
+                      }
+                  }
+              
+              },
+              eventClick: function (calEvent, jsEvent, view) {
+                  
+
+                  console.log(calEvent);
+
+
+                  if (prev_eventobj && prev_eventobj.title != 'Not Available' )
+                  {
+
+                      prev_eventobj.title = 'Open Appointment';
+                      prev_eventobj.textColor = 'white';
+                      prev_eventobj.backgroundColor = '#69bc69';
+                  }
+
+                  prev_eventobj = calEvent;
+
+
+             
+
+          
+
+                  //#f4df42;s
+
+                  if (calEvent.title != 'Not Available')
+                  {
+                      console.log('good event click');
+
+                      $('.tz_appt_select_div').show();
+
+                      calEvent.title = 'Selected Appointment';
+                      calEvent.textColor = 'black';
+                      calEvent.backgroundColor = 'yellow';
+      
+                    //  $('#dd_tz_appt').val('-6');
+                      var skilltz = current_user_srv.skill_tz.toString();
+                      var ddval = $('#dd_tz_appt').val();
+                      
+                      console.log(skilltz);
+                     // console.log(skilltz.replace(-5, 'America/New_York').replace(-6, 'America/Chicago').replace(-7, 'America/Denver').replace(-8, 'America/Los_Angeles'));
+                      //drop down 
+                      var skill_time_st = moment.tz(calEvent.start.format('YYYY-MM-DD HH:mm'), skilltz.replace(-5, 'America/New_York').replace(-6, 'America/Chicago').replace(-7, 'America/Denver').replace(-8, 'America/Los_Angeles'));
+                      var cust_time_tz_st = skill_time_st.clone().tz(ddval.replace(-5, 'America/New_York').replace(-6, 'America/Chicago').replace(-7, 'America/Denver').replace(-8, 'America/Los_Angeles'));
+
+                      var skill_time_end = moment.tz(calEvent.end.format('YYYY-MM-DD HH:mm'), skilltz.replace(-5, 'America/New_York').replace(-6, 'America/Chicago').replace(-7, 'America/Denver').replace(-8, 'America/Los_Angeles'));
+                      var cust_time_tz_end = skill_time_end.clone().tz(ddval.replace(-5, 'America/New_York').replace(-6, 'America/Chicago').replace(-7, 'America/Denver').replace(-8, 'America/Los_Angeles'));
+
+                      
+                      //current_user_srv.appt_st = cust_time_tz_st.format("YYYY-MM-DD HH:mm:ssZ");
+                      current_user_srv.appt_st = cust_time_tz_st;
+
+                      //current_user_srv.appt_end = cust_time_tz_end.format("YYYY-MM-DD HH:mm:ssZ");
+                      current_user_srv.appt_end = cust_time_tz_end;
+
+
+
+                      current_user_srv.sk_appt_st = skill_time_st;
+
+                      current_user_srv.sk_appt_end = skill_time_end;
+
+
+
+                      $('#appt_timedisp').html('<span class="heading_xsmall" style="text-decoration: underline;">Caller Appointment Time </span><BR><span class="heading_xsmall">' + cust_time_tz_st.format('llll') + ' - ' + cust_time_tz_end.format("h:mm a") + '</span>');
+                     
+                      $('.btnset_appt_modal').show();
+                      
+                      
+                  } else {
+                      $('#appt_timedisp').html('');
+                      $('.btnset_appt_modal').hide();
+                      $('.tz_appt_select_div').hide();
+                      console.log('No event click');
+                  }
+
+                  $('#calendar_appt_div').fullCalendar('rerenderEvents');
+              },
+              eventAfterAllRender: function (view) {
+
+             
+
+              },
+              dayRender: function (date, cell) {
+
+
+                  //console.log(moment(date._d).format("YYYY-MM-DD"));
+                  //console.log(moment().format("YYYY-MM-DD"));
+
+                  if (Array.from(dow_in)[parseInt(date._d.getDay())] == 0 || moment(moment(date._d).format("YYYY-MM-DD")).isBefore(moment().subtract(1, "days").format("YYYY-MM-DD")))
+
+                 {
+
+                     cell.css("background-color", "#d9534f");
+                 } else {
+
+                     cell.css("background-color", "#69bc69");
+                 }
+
+
+
+              }
+              
+           
+           
+          }).on('click', '.fc-month-button', function () {
+
+
+              $('.fc-next-button').show();
+              $('.fc-prev-button').show();
+              $('.fc-today-button').show();
+
+              $('#calendar_appt_div').fullCalendar('removeEvents');
+
+
+          });
+          
+    }
+
+
+
+            //on modal update 
+            $('#setagentappt_modal').on('shown.bs.modal', function () {
+                $('.appt_displayin').html('');
+
+                $('#appt_div').show();
+                destorycal(function () {
+                    //loadcal_sc(5, '1111110', 'America/Chicago');
+                    var cont_tz = current_user_srv.contact_tz.toString();
+
+
+                    loadcal_sc(current_user_srv.skill_wk, current_user_srv.appt_dow, cont_tz.replace(-5, 'America/New_York').replace(-6, 'America/Chicago').replace(-7, 'America/Denver').replace(-8, 'America/Los_Angeles'), current_user_srv.skill_tz.toString().replace(-5, 'America/New_York').replace(-6, 'America/Chicago').replace(-7, 'America/Denver').replace(-8, 'America/Los_Angeles'));
+       
+                });
+            });
+
+
+
+            $('#dd_tz_appt').change(function () {
+
+                console.log('change tz');
+
+                var ddval = $(this).val();
+              //  ddval = '-6';
+
+            
+
+                var skilltz = current_user_srv.skill_tz.toString();
+                //skilltz = current_user_srv.skill_tz;
+
+
+               // current_user_srv.contact_tz
+
+                var skill_time_st = moment.tz(prev_eventobj.start.format('YYYY-MM-DD HH:mm'), skilltz.replace(-5, 'America/New_York').replace(-6, 'America/Chicago').replace(-7, 'America/Denver').replace(-8, 'America/Los_Angeles'));
+                var cust_time_tz_st = skill_time_st.clone().tz(ddval.replace(-5, 'America/New_York').replace(-6, 'America/Chicago').replace(-7, 'America/Denver').replace(-8, 'America/Los_Angeles'));
+
+                var skill_time_end = moment.tz(prev_eventobj.end.format('YYYY-MM-DD HH:mm'), skilltz.replace(-5, 'America/New_York').replace(-6, 'America/Chicago').replace(-7, 'America/Denver').replace(-8, 'America/Los_Angeles'));
+                var cust_time_tz_end = skill_time_end.clone().tz(ddval.replace(-5, 'America/New_York').replace(-6, 'America/Chicago').replace(-7, 'America/Denver').replace(-8, 'America/Los_Angeles'));
+                //current_user_srv.appt_st = cust_time_tz_st.format("YYYY-MM-DD HH:mm:ssZ");
+                current_user_srv.appt_st = cust_time_tz_st;
+
+                //current_user_srv.appt_end = cust_time_tz_end.format("YYYY-MM-DD HH:mm:ssZ");
+                current_user_srv.appt_end = cust_time_tz_end;
+
+                current_user_srv.sk_appt_st = skill_time_st;
+
+                current_user_srv.sk_appt_end = skill_time_end;
+
+
+                $('#appt_timedisp').html('<span class="heading_xsmall" style="text-decoration: underline;">Caller Appointment Time </span><BR><span class="heading_xsmall">' + cust_time_tz_st.format('llll') + ' - ' + cust_time_tz_end.format("h:mm a") + '</span>');
+
+
+            });
+       
+
+            $('.btnset_appt_modal').click(function () {
+
+                $('#appt_div').hide();
+                $('#appt_timedisp').html('');
+                $('.btnset_appt_modal').hide();
+                $('.tz_appt_select_div').hide();
+
+
+
+
+                var updateapptinfo = {
+
+                    appt_st_dt: current_user_srv.appt_st.format("YYYY-MM-DD HH:mm:ssZ"),
+                    appt_end_dt: current_user_srv.appt_end.format("YYYY-MM-DD HH:mm:ssZ"),
+                    appt_st_dt_skill: current_user_srv.sk_appt_st.format("YYYY-MM-DD HH:mm:ss"),
+                    contact_tz: $('#dd_tz_appt').val(),
+                    contact_wk: currentrecord.contact_wk
+                };
+
+
+
+                socket.emit("update_appt_info", updateapptinfo, function (emitcallbackdata) {
+
+                    //console.log(emitcallbackdata);
+
+                    $('.appt_displayin').html('<h3 class="text-success">Appointment Saved</h3><span style="text-decoration: underline;"><h3>Caller Appointment Time </h3></span><span ><h3 class="text-warning">' + current_user_srv.appt_st.format('llll') + ' - ' + current_user_srv.appt_end.format("h:mm a z") + '</span>' + '</h3><span class="heading_xsmall" style="text-decoration: underline;"><h3>Your Appointment Time </h3></span><span class="text-success"><h3>' + current_user_srv.sk_appt_st.format('llll') + ' - ' + current_user_srv.sk_appt_end.format("h:mm a z") + '</h3></span>');
+
+
+                    $('.td_appt_dt').html(current_user_srv.sk_appt_st.format('llll') + ' - ' + current_user_srv.sk_appt_end.format("h:mm a z"));
+
+
+
+                });
+
+            });
+
+
+
+            $('#setagentappt_modal').on('hidden.bs.modal', function () {
+                $('.btnset_appt_modal').hide();
+
+                $('.appt_displayin').html('');
+                
+                $('#appt_timedisp').html('');
+                $('.tz_appt_select_div').hide();
+            });
+
+
+
+        });
+
+      
+
+
+</script>
+
+
+
+    <script type="text/javascript">
+
+
+        //google maps load check var
+        var mapload = 0;
+
+        //google maps record 
+        var currentrecord = {};
+
+        //left menu in and out 
+        var menuleft = 0;
+
+        //main current user survey obj
+        var current_user_srv = new Object();
+
+        //Call time for disp and call timere
+        var timercall = new Tock({
+            callback: function () {
+                var current_time = timercall.msToTime(timercall.lap());
+                $('.calltime').html('Call Time : ' + current_time);
+            }
+        });
+
+
+        var timerdispo = new Tock({
+            callback: function () {
+                var current_time = timerdispo.msToTime(timerdispo.lap());
+                $('.dispotimer').html('After Call Time : ' + current_time);
+            }
+        });
+
+
+
+        function flashmsgsend(title, bodymsg, icons, classcolor) {
+
+            $.gritter.add({
+                // (string | mandatory) the heading of the notification
+                title: title,
+                // (string | mandatory) the text inside the notification
+                text: bodymsg,
+                image: icons,
+                time: 1000,
+                class_name: 'gritter-light gritclass' + classcolor
+            });
+
+        }
+
+
+        $(document).ready(function () {
+
+
+
+            //$('.toggle-sidebar-collapse').getAttribute('onclick');
+
+
+            //weather load 
+
+            socket.emit('zip_weather','32114', function (weather_data) {
+
+                //  console.log(weather_data);
+
+                if (weather_data.weather[0].description) {
+                    $('.weather_tag').html('Weather&nbsp;&nbsp;&nbsp;');
+                    $('.weather_descript').html('&nbsp;&nbsp;&nbsp;' + weather_data.weather[0].description);
+                    $('.weather_icon').html('<img src="https://openweathermap.org/img/w/' + weather_data.weather[0].icon + '.png"' + ' alt="weather">&nbsp;&nbsp;&nbsp;')
+                    $('.weather_temp').html(weather_data.main.temp + '&deg;f');
+                    $('.weather_name').html(weather_data.name);
+                }
+            });
+
+
+            //hide side menu 
+
+        //    $('.toggle-sidebar-collapse').click();
+
+
+            $('#gmapsmodal').on('shown.bs.modal', function () {
+                google.maps.event.trigger(map, 'resize');
+                map.setCenter(latlongz);
+                //console.log('resentr map');
+            });
+
+
+            //callback datetime modal input 
+
+            $('#datetimepickercallback').datetimepicker({
+
+                defaultDate: new Date(),
+                useCurrent: false
+            });
+
+
+
+            //load google maps
+            if (mapload == 0) {
+                mapload = 1;
+                currentrecord.contact_addr = '2441 Bellevue Ave';
+                currentrecord.contact_city = 'Daytona Beach';
+                currentrecord.contact_state = 'FL';
+                currentrecord.contact_zip = '32114';
+                loadScriptgmap();
+            } else { console.log('map already loaded'); }
+
+
+            //inline edit to call info box
+            $.fn.editable.defaults.mode = 'inline';
+
+            //dial input restrict to numbers
+            $('.dialinp').keyup(function () {
+                if (this.value != this.value.replace(/[^0-9\.]/g, '')) {
+                    this.value = this.value.replace(/[^0-9\.]/g, '');
+                }
+            });
+
+            //Menu Handler
+            $('.clkmenu').click(function (e) {
+                //console.log($.trim($(this).attr("class")));
+
+                $('.clkmenu').removeClass('active');
+
+                var showhidet = 500;
+                var valclass = $.trim($(this).find('a').attr("class")).replace(' cntztext', '');
+                var menuvar_select = valclass.substr(valclass.indexOf("btn_mnu_"), valclass.length - valclass.indexOf("btn_mnu_")).replace('btn_mnu_', 'mmnu_');
+                var menuvar = $(this).find('.text').html();
+
+                var valz = '';
+
+
+
+
+                $(this).addClass('active');
+
+                console.log(menuvar_select);
+
+                if (menuvar_select == 'mmnu_srvexp') {
+                    $('.mmnu_srvexp_div').html($('.srv_widget').html());
+                    console.log('hello hit');
+                
+
+                    $('.srvexp_div').html($('.srv_widget').html());
+                }
+
+
+                $.each($("[class*=mmnu_]"), function (key, value) {
+
+                    var valz = $.trim($(this).attr("class"));
+
+                    $(this).removeClass('active');
+
+                    if (valz.substr(valz.indexOf("mmnu_"), valz.length - valz.indexOf("mmnu_")) != menuvar_select) {
+
+                        $(this).hide(showhidet);
+
+
+                    } else {
+                        $(this).show(showhidet, function () {
+                            if (menuvar_select == 'mmnu_trustcontent') {
+
+
+                                google.maps.event.trigger(map, 'resize');
+                                map.setCenter(latlongz);
+                                //console.log('resentr map');
+                            } 
+
+
+
+                        });
+
+                    }
+
+                });
+
+
+
+
+                e.preventDefault();
+
+
+
+
+            });
+
+        });
+
+    </script>
+
+
+
+
+    <script>
+
+        //socket io get querystring 
+        var socket = io('', { query: sipconfigdb });
+      
+
+        //popluate dispo table
+        function populatedispo(dispoins, callback) {
+            var dispolbl = '';
+            $('#dispo_email').val($.trim($('#rec_email').text()));
+            $('.trustMnuhide').show();
+            $.each(dispoins, function (key, value) {
+                dispolbl += '<label class="fancy-checkbox fancy-checkboxdispo"><input type="checkbox"  name="dispoboxname" class="dispobox" /><span class="' + value.dispowk + '|' + value.dispocode + '">' + value.dispodescript + '</span></label>';
+            });
+            $('.dispolbldiv').html(dispolbl).promise().done(function () {
+                callback('0');
+            });
+        }
+
+
+
+        //returns array after obj array search
+        function obj_array_Search(jsObjects, key_search, value_search) {
+            return jsObjects.filter(function (obj) { return obj[key_search] == value_search; });
+
+        }
+
+
+
+
+        //display contact counts
+        socket.on('agentdisplayinfo', function (displayobjcount) {
+            $('.call_disp_ct').html(displayobjcount.c_ct);
+            $('.sm_disp_ct').html(displayobjcount.smc_ct);
+            $('.la_disp_ct').html(displayobjcount.la_ct);
+            $('.vm_disp_ct').html(displayobjcount.vm_ct);
+
+
+        });
+
+    
+        socket.on('flashsrvmsg', function (title, bodytext, icons, colorelm) {
+
+            //  console.log(icons);
+
+
+            flashmsgsend(title, bodytext, icons, colorelm);
+
+
+
+
+        });
+
+        socket.on('hanguponuser', function (socketid) {
+
+
+
+
+            timercall.stop();
+            timercall.reset();
+            timerdispo.start();
+
+            hideshowhangup();
+
+        });
+
+        socket.on('yqlnews', function (newslocal, newsworld, newsus) {
+
+
+
+            console.log('****news****')
+
+            //clear tables
+            $('.gennewstable').html('');
+            $('.localnewstable').html('');
+            $('.entnewstable').html('');
+
+            $.each(newsworld, function (index, value) {
+
+
+                if (typeof value.enclosures != 'undefined') {
+                    if (typeof value.enclosures[0] != 'undefined') {
+
+
+                        $('.entnewstable').append('<TR><TD><img src="' + value.enclosures[0].url + '" style="width:100px;height:auto"></TD><TD><h3>' + value.title + '</h3><p><h4>' + value.description + '</h4></p></TD></TR>');
+
+
+
+                    }
+                }
+            });
+
+
+            $.each(newsus, function (index, value) {
+
+
+
+                if (typeof value.enclosures != 'undefined') {
+                    if (typeof value.enclosures[0] != 'undefined') {
+
+                        $('.gennewstable').append('<TR><TD><img src="' + value.enclosures[0].url + '"  style="width:100px;height:auto"></TD><TD><h3>' + value.title + '</h3><p><h4>' + value.summary + '</h4></p></TD></TR>');
+
+
+                    }
+                }
+            });
+
+            var inparse = '';
+
+            $.each(newslocal, function (index, value) {
+
+                //   console.log(value);
+
+                inparse = value.summary.substring(value.summary.indexOf('<img src="') + 10, value.summary.indexOf('alt=""') - 2);
+                inparsedes = value.description.substring(value.description.indexOf('<font size="-1">'), value.description.indexOf('<font size="-1" class="p">'));
+
+
+                //    console.log(inparsedes);
+                //   console.log(value.summary.substring(value.summary.indexOf('<img src="') + 10, value.summary.indexOf('alt=""')-2));
+
+
+                if (typeof (inparse != 'undefined')) {
+
+
+                    if (inparse.substring(0, 2) != '//') {
+
+                        $('.localnewstable').append('<TR><TD><i class="fa fa-newspaper-o fa-4x" aria-hidden="true"></i></TD><TD><h3>' + value.title + '</h3><p><h4>' + inparsedes + '</h4></p></TD></TR>');
+                    } else {
+
+                        $('.localnewstable').append('<TR><TD><img src="' + inparse + '"  style="width:100px;height:auto"></TD><TD><h3>' + value.title + '</h3><p><h4>' + inparsedes + '</h4></p></TD></TR>');
+                    }
+
+
+
+                }
+
+            });
+
+
+
+
+
+        });
+
+        socket.on('yqlhtml', function (forecast) {
+
+
+            // $(".currentcond").html('<BR>' + forecast + '<BR>' );
+
+
+        });
+
+        socket.on('yql', function (forcast, unit, title, currtcond) {
+
+            // console.log(forcast)
+
+            //console.log('helloyqll$$$$$$$$$$$$$$$$$$$$$$');
+
+            //console.log(c);
+            var skycons = new Skycons({ "color": "#333" });
+            var yqlhtml = ''
+            var daycount = 0
+            $.each(forcast, function (index, value) {
+
+                if (daycount < 8) {
+                    daycount += 1;
+
+                    skycons.play();
+
+
+                    // you can also halt animation with skycons.pause()
+                    //'Skycons.' + value.text.toUpperCase().replace(/ /gi, "_")
+
+                    // want to change the icon? no problem:
+                    var inconrep = 'Skycons.' + weatherswitch(value.text.toUpperCase().replace(/ /gi, "_").replace('(', '').replace(')', ''));
+
+
+                    skycons.set("icon" + (index + 1), eval(inconrep));
+
+
+                    $(".currentcond").html(currtcond.text + ' ' + currtcond.date + ' ' + currtcond.temp + '&deg;' + (unit.toUpperCase()));
+                    $(".weathernamespan").html(title);
+                    $(".iconHL" + (index + 1)).html('<i class="fa fa-arrow-up" aria-hidden="true" style="color:red"></i> ' + value.high + '&deg;' + (unit.toUpperCase()) + '<BR>' + '<i class="fa fa-arrow-down" aria-hidden="true" style="color:blue"></i> ' + value.low + '&deg;' + (unit.toUpperCase()) + '<BR>' + '<span style="font-size:10px">' + value.text + '<span>');
+                    $(".icontxt" + (index + 1)).html(moment(new Date(value.date)).format('ddd') + '<BR>' + moment(new Date(value.date)).format('MMM Do'));
+
+
+                }
+                //    console.log(value.date);
+
+
+            });
+
+
+
+            var inconrepc = 'Skycons.' + weatherswitch(currtcond.text.toUpperCase().replace(/ /gi, "_").replace('(', '').replace(')', ''));
+
+
+            //   console.log(inconrepc);
+
+
+            skycons.set("iconcurr", eval(inconrepc));
+
+
+
+        });
+
+        //get user information
+        socket.on('serverusersinfo', function (usrinfo) {
+
+            var htmluseronline = '';
+
+            //  console.log(usrinfo);
+
+            $.each(usrinfo, function (key, value) {
+
+                htmluseronline += '<li><i class="fa fa-user activity-icon pull-left icon-success"></i><p>' + value.name + ' | ' + value.chatstatus + '<span class="timestamp">' + value.connecttime + '</span></p></li>'
+                //    console.log(value.useridsock);
+                //      console.log(value.connecttime);
+            });
+            $('.chatusersonline').html(htmluseronline);
+
+
+        });
+
+
+
+
+
+        //play button show 
+        socket.on('playbtnshow_svr', function (varback) { console.log(varback); $(".playbtncls").show();});
+
+
+
+
+        //call info outbound populate
+        socket.on('callinfo', function (callinfoobj, userinfo) {
+            // show buttons for survey engine 
+  
+
+            if (callinfoobj != 0) {
+
+
+                //reenable edit record edit button 
+                $('#enableRecedit').prop('disabled', false);
+                $('.appt_dt_input').prop("disabled", true);
+                $('.lockunlockbtn').html('Edit');
+                $('.lockunlockbtn').removeClass('btn-danger');
+                $('.lockunlockbtn').addClass('btn-success');
+
+
+                
+
+                $('.com_textarea').prop("disabled", true);
+                    
+                $('.com_textarea').val(callinfoobj.comments || '');
+
+                $('.navsrv_ul').css('display', function (index) {
+                    $('.intro_srv_btns').show();
+                    return 'inline-block';
+                });
+                
+                current_user_srv.srv_user = callinfoobj.skill_script_intro;
+                current_user_srv.srv_qst = callinfoobj.qst_display;
+                current_user_srv.skill_wk = callinfoobj.skill_wk;
+                current_user_srv.skill_tz = callinfoobj.skill_tz;
+                current_user_srv.appt_dow = callinfoobj.appt_dow;
+                current_user_srv.appt_st = callinfoobj.appt_dt_st;
+                current_user_srv.appt_end = callinfoobj.appt_dt_end;
+                current_user_srv.contact_tz = callinfoobj.contact_tz;
+                current_user_srv.contact_wk = callinfoobj.contact_wk;
+                current_user_srv.msg_path = callinfoobj.sc_msg_path;
+                current_user_srv.contact_type = callinfoobj.contact_type;
+                current_user_srv.bridge = '';
+                current_user_srv.channelout = '';
+                current_user_srv.channelagent = '';
+                currentrecord = callinfoobj;
+                codeAddress(currentrecord);
+                $('.classinoutindicator').removeClass('fa-phone-square').removeClass('green-font').removeClass('red-font').removeClass("fa-arrow-up").removeClass("fa-arrow-down").addClass("fa-arrow-up").addClass("green-font");
+
+
+                $('.inboundrecordinfo').hide(function () {
+                    $('.outboundrecordinfo').show();
+
+                });
+
+
+
+                //weather emit to call on screen pop and populate weather div 
+
+                if (callinfoobj.contact_zip)
+                    {
+                    socket.emit('zip_weather', callinfoobj.contact_zip, function (weather_data) {
+
+                      //  console.log(weather_data);
+
+                        if (weather_data.weather[0].description) {
+                            $('.weather_tag').html('Weather');
+                            $('.weather_descript').html(weather_data.weather[0].description);
+                            $('.weather_icon').html('<img src="http://openweathermap.org/img/w/' + weather_data.weather[0].icon + '.png"' + ' alt="weather">')
+                            $('.weather_temp').html(weather_data.main.temp + '&deg;f');
+                            $('.weather_name').html(weather_data.name);
+                        }
+                    });
+                }
+
+
+
+
+
+              //  $('#srv_take').html('<h2>' + callinfoobj.srv_info_display[0].srv_yes_script + '</h2> <br /><span style="font-size:18px;font-weight:bold; border-right :1px solid black;padding-right:15px" class="text-warning"> Agent Prompt </span><span style="font-size:22px;padding-left:15px" class="text-danger agent_prompt" >' + callinfoobj.srv_info_display[0].srv_yes_prompt + '</span>');
+              //  $('#srv_refused').html('<h2>' + callinfoobj.srv_info_display[0].srv_refused_message + '</h2> <br /><span style="font-size:22px;font-weight:bold; border-right :1px solid black;padding-right:15px" class="text-warning"> Agent Prompt </span><span style="font-size:22px;padding-left:15px" class="text-danger agent_prompt" >' + callinfoobj.srv_info_display[0].srv_refused_prompt + '</span>');
+              //  $('#srv_leftmessage').html('<h2>' + callinfoobj.srv_info_display[0].srv_left_message + '</h2> <br /><span style="font-size:22px;font-weight:bold; border-right :1px solid black;padding-right:15px" class="text-warning"> Agent Prompt </span><span style="font-size:22px;padding-left:15px" class="text-danger agent_prompt" >' + callinfoobj.srv_info_display[0].srv_dnc_prompt + '</span>');
+             //   $('#srv_dnc').html('<h2>' + callinfoobj.srv_info_display[0].srv_dnc_message + '</h2> <br /><span style="font-size:22px;font-weight:bold; border-right :1px solid black;padding-right:15px" class="text-warning"> Agent Prompt </span><span style="font-size:22px;padding-left:15px" class="text-danger agent_prompt" >' + 'Read Message when answering machine picks up' + '</span>');
+                $('#srv_intro_div').html('<span class="heading_lglg">' +  replace_srv_vars(callinfoobj.skill_script_intro,userinfo) + '</span>').show();
+
+
+                $('.srv_content').html(replace_srv_vars($('.srv_content').html(), userinfo));
+
+
+
+
+
+
+                $('.skilldispname').html(callinfoobj.skill_name);
+
+                $('.srv_name_class').html('Survey - <span style="color:#3E9C1A">' + callinfoobj.skill_name + '</span><span style="font-weight:bold"> - ' + 'Outbound Survey' + '</span>');
+
+             
+
+
+                $('.td_rec_name').html('');
+
+                $('.td_appt_dt').html('');
+                $('.td_rec_name').html('<a href="#" id="rec_name" class="editz">' + (  callinfoobj.first_name || '' ) + ' ' + callinfoobj.last_name + '</a>');
+                $('.td_rec_addr').html('<a href="#" id="rec_addr" class="editz">' + (  callinfoobj.contact_addr || '' ) + '</a>');
+                $('.td_rec_city').html('<a href="#" id="rec_addr" class="editz">' + (  callinfoobj.contact_city || '' ) + '</a>');
+                $('.td_rec_state').html('<a href="#" id="rec_addr" class="editz">' + (  callinfoobj.contact_state || '' ) + '</a>');
+                $('.td_rec_zip').html('<a href="#" id="rec_addr" class="editz">' + (  callinfoobj.contact_zip || '' ) + '</a>');
+                $('.td_rec_company').html('<a href="#" id="rec_company" class="editz">' + ( callinfoobj.business_name || '' ) + '</a>');
+                $('.td_rec_wp').html('<a href="#" id="rec_wp" class="editz">' + ( callinfoobj.cell_phone || '' ) + '</a>');
+                $('.td_rec_hp').html('<a href="#" id="rec_hp" class="editz">' + ( callinfoobj.home_phone || '' ) + '</a>');
+                $('.td_rec_cp').html('<a href="#" id="rec_cp" class="editz">' + ( callinfoobj.work_phone || '' ) + '</a>');
+                $('.td_rec_biz').html('<a href="#" id="rec_biz" class="editz">' + (callinfoobj.business_type || '') + '</a>');
+                $('.td_rec_ext').html('<a href="#" id="rec_ext" class="editz">' + (callinfoobj.cust_h_ext || '') + '</a>');
+                $('.td_rec_email').html('<a href="#" id="rec_email" class="editz">' + (callinfoobj.contact_email || '') + '</a>');
+                $('.td_rec_title').html('<a href="#" id="rec_title" class="editz">' + (callinfoobj.cust_title || '') + '</a>');
+                $('.td_rec_msgnum').html( (parseInt(callinfoobj.msg_att) || 0) == 0 ? 'No Messages Left' : callinfoobj.msg_att + ' | ' + ((moment(callinfoobj.last_msg_dt).format('MMMM Do YYYY, h:mm a') || '') || (null || '')));
+                $('.td_rec_attnum').html((parseInt(callinfoobj.call_att) || 0) == 0 ? 'No Attempts' : callinfoobj.call_att + ' | ' + ((moment(callinfoobj.last_attempt_dt).format('MMMM Do YYYY, h:mm a') || '') || (null || '')));
+
+        
+
+
+                $('.dialinp').val(callinfoobj.home_phone)
+                $('.editz').editable();
+                //$('#user .editable').editable('toggleDisabled');
+
+                $('#user .editable').editable('option', 'disabled', true);
+                //send calll to get weather info
+
+             
+
+
+
+               // socket.emit('weatheremitget', callinfoobj.contact_zip);
+
+                $(".dialnumbtncls").fadeIn(1000);
+
+
+
+
+                var dispolbl = ''
+
+
+
+
+                populatedispo(callinfoobj.dispo_db_display, function (callbackvar) {
+                    $('.dispobox').click(function () {
+                       
+
+                        var classcheck = $(this).next().attr("class");
+
+                        current_user_srv.dispo_code = $(this).next().attr("class").split('|')[1];
+                        current_user_srv.dispo_descript = $(this).next().attr("class").split('|')[0];
+                        console.log(current_user_srv.dispo_code);
+                        console.log(current_user_srv.dispo_descript);
+
+                        if (current_user_srv.dispo_code == 'CBT')
+                        {$('.callback_div').show();
+                        $('.emaildispo_div').hide();
+                        } else if (current_user_srv.dispo_code == 'EMI') {
+                            $('.emaildispo_div').show();
+                            $('.callback_div').hide();
+                        } else {
+                            $('.emaildispo_div').hide();
+                            $('.callback_div').hide();
+                        }
+
+                        if ($(this).is(":checked")) {
+                            var group = "input:checkbox[name='" + $(this).attr("name") + "']";
+                            $(group).prop("checked", false);
+                            $(this).prop("checked", true);
+
+                        } else {
+                            $(this).prop("checked", false);
+                        }
+                    });
+
+
+                });
+
+
+
+                $(".set_appt_btn").show();
+
+
+
+            } else {
+
+                $(".set_appt_btn").hide();
+
+
+                $('.trustMnuhide').hide();
+                //reenable edit record edit button 
+                $('#enableRecedit').prop('disabled', true);
+                $('.appt_dt_input').prop("disabled", true);
+                $('.lockunlockbtn').html('Edit');
+                $('.lockunlockbtn').removeClass('btn-danger');
+                $('.lockunlockbtn').addClass('btn-success');
+
+
+
+                $('.inbcallindicator').hide(function () {
+
+                    $('.norecord').fadeIn(700).fadeOut(700).fadeIn(1000).fadeOut(700);
+
+                });
+
+
+
+            }
+
+        });
+
+
+
+
+        //server messages
+        socket.on('servermessages', function (msg, msgtype) {
+            if (msgtype == 'connecteduser') {
+                $('.servermessages').prepend('<div class="alert alert-success"><i class="fa fa-user"> </i> ' + msg + '</div>')
+                i = 1;
+            } else if (msgtype == 'ui') {
+                $('.servermessages').prepend('<div class="alert alert-info alert-dismissable"><i class="fa fa-language"> </i> ' + msg + '</div>')
+            } else if (msgtype == 'disconnecteduser') {
+                $('.servermessages').prepend('<div class="alert alert-danger alert-dismissable"><i class="fa fa-plug"> </i> ' + msg + '</div>')
+            }
+        });
+
+        socket.on('chatclient', function (chatmsg, from, inname) {
+            if (socket.id == from) {
+                $('.chattbl').append('<tr><td><p class="triangle-border left" style="width:400px;float:left; border:3px solid #296EAA !important;"><i class="fa fa-clock-o fa-fw"></i> ' + moment().format('h:mm:ss A') + ' | <b>' + inname + '</b><br>' + chatmsg + '</p></td></tr>');
+            } else {
+                $('.chattbl').append('<tr><td><p class="triangle-border  right" style="width:400px;float:right; border:3px solid #859419 !important;"><i class="fa fa-clock-o fa-fw"></i> ' + moment().format('h:mm:ss A') + ' | <b>' + inname + '</b><br>' + chatmsg + '</p></td></tr>');
+            }
+            //scroll to bottom of div after chat updated
+            $(".chatpaneldivreal").scrollTop($(".chatpaneldivreal")[0].scrollHeight);
+        });
+
+
+    </script>
+
+
+    <script type="text/javascript">
+
+
+        //connnect show hide buttons 
+        function hideshowconnectbtn() {
+            setTimeout(function(){ 
+            if (agconnected) {
+
+
+
+
+                $(".connectbtncls").prop("disabled", true);
+
+
+
+                //active connect buttion on ring back to agent
+                $(".connectbtncls").find('i').addClass('fa-spin');
+                $(".connectbtncls").removeClass('btn-primary');
+                $(".connectbtncls").addClass('btn-success');
+                $(".connectbtncls").html($(".connectbtncls").html().replace('Connect', 'Connecting'));
+                
+                $(".connect_status").html('Connecting');
+
+
+                
+
+                setTimeout(function () {
+
+                    socket.emit("connectbtn", socket.id, sipconfigdb.end_point_ext, sipconfigdb.online_user_wk, function (channel_back) {
+                        console.log('chan vac')
+                        console.log(channel_back)
+
+                        if (channel_back != -1) {
+                            current_user_srv.channelagent = channel_back;
+                            $(".connectbtncls").find('i').removeClass('fa-spin');
+                            $('.statusdialbtn').prop('disabled', false);
+
+                            $('.statusdialbtn').html('   <i class="fa fa-chevron-down" style="border-right-style: solid;padding-right:10px"></i> <i class="fa fa-clock-o fa-fw"></i> Away</a> ');
+                            $(".dialinp").show();
+
+                            $('.connect_status').html('Connected ');
+
+                        } else {
+                            $('#errormodal').modal('show');
+                            $('#errormodal p').html('Not Connected to Server <be> Please Check Connection');
+                            $("#errormodal .modal-title").html('Server Connect Error');
+                            $("#errormodal").modal({ keyboard: true });
+                        }
+
+
+                    });
+                } ,4000);
+
+
+
+                socket.on('agentchanout', function (channel_back) {
+
+                    $('.connect_status').html('Connecting Channel ' + channel_back.substring(0,5));
+                    current_user_srv.channelagent = channel_back;
+                  
+                    console.log(channel_back.substring(0, 5));
+
+
+                    setTimeout(function () {
+
+                        $('.btn.btn-xs.btn-success.btnCall').click();
+
+                        console.log('click btn');
+
+
+                        $(".connectbtncls").html($(".connectbtncls").html().replace('Connecting', 'Connected'));
+
+                        $(".connectbtncls").find('i').removeClass('fa-cog');
+
+                        $(".connectbtncls").find('i').addClass('fa-check');
+                        $(".connectbtncls").fadeOut(3000);
+
+                        
+
+                    }, 6000);
+
+
+
+                });
+
+
+
+
+
+      
+            } else {
+
+                //if agent not connected 
+               
+                $('#errormodal').modal('show');
+
+                $('#errormodal p').html('Not Connected to Server <be> Please Check Connection');
+                $("#errormodal .modal-header").prepend(b);
+                $("#errormodal .modal-title").html('Server Connect Error');
+                $("#errormodal").modal({ keyboard: true });
+
+            }
+            }, 3000);
+        }
+
+        //function to show hide after playbtn
+        function hideshowplaybtn() {
+
+            $('.calltime').html('');
+
+
+
+            $('.statusdialbtn').css('background-color', '#4BA84B')
+            $('.statusdialbtn').html('<i class="fa fa-chevron-down" style="border-right-style: solid;padding-right:10px"></i> <i class="' + $(this).parent().find('i').attr('class') + '"></i> ' + 'Available' + '</a> ');
+
+
+
+            $(".hangupbtncls").hide();
+
+            $(".playbtncls").hide();
+
+            $(".dialinp").show();
+
+            $(".disconnectbtncls").hide();
+
+
+            $(".hangupbtncls").hide();
+
+
+
+            $(".statusdialbtn").prop("disabled", false);
+
+            socket.emit("playbtn", socket.id, current_user_srv.bridge, current_user_srv.channelout, current_user_srv.channelagent, current_user_srv.contact_wk, current_user_srv.att_wk, current_user_srv.msg_path);
+    
+
+        }
+
+        //function to show hide after hangup
+        function hideshowhangup() {
+
+
+            socket.emit("hangupbtn", socket.id, current_user_srv.channelout, current_user_srv.channelagent);
+
+
+
+           // $(".connectbtncls").html('<i class="fa fa-cog" aria-hidden="true"></i> Connect');
+           // $(".connectbtncls").removeClass('btn-success');
+           // $(".connectbtncls").addClass('btn-primary');
+            $('.statusdialbtn').css('background-color', '#337ab7')
+            $('.statusdialbtn').html('<i class="fa fa-chevron-down" style="border-right-style: solid;padding-right:10px"></i> <i class="' + $(this).parent().find('i').attr('class') + '"></i> ' + 'Disposition' + '</a> ');
+            $(".hangupbtncls").hide();
+            $(".playbtncls").hide();
+            $(".dialinp").val('');
+            $(".statusdialbtn").prop("disabled", true);
+            $(".disconnectbtncls").hide();
+            $(".connectbtncls").hide(); 
+            $(".dispobtncls").show();
+
+            $('.norecord').hide();
+            $('.inbcallindicator').hide();
+
+              
+
+      
+
+        }
+
+        //function to show hide after disconnect
+        function hideshowbuttonsdisconnect() {
+
+           // $(".connectbtncls").html('<i class="fa fa-cog" aria-hidden="true"></i> Connect');
+           // $(".connectbtncls").removeClass('btn-success');
+          //  $(".connectbtncls").addClass('btn-primary');
+          //  $(".connectbtncls").prop("disabled", false);
+            $(".statusdialbtn").prop("disabled", true);
+            $(".hangupbtncls").hide();
+            $(".playbtncls").hide();
+            $(".dialnumbtncls").hide();
+            $(".dialinp").val('');
+
+
+
+            return true;
+        }
+
+
+        //after dispostion show hide buttons
+        function afterdisposhowhide() {
+
+
+            $('#agentdispomodal').modal('hide');
+            $(".disconnectbtncls").hide();
+            $(".hangupbtncls").hide();
+            $(".playbtncls").hide();
+            $(".statusdialbtn").prop("disabled", false);
+            $(".dispobtncls").hide();
+            $(".connectbtncls").show();
+            //clear record values 
+            clearrec();
+
+            return true;
+
+        }
+
+
+        //dial show show hide button
+        function dialhideshowbuttons() {
+
+
+            //hide dial off rip
+            console.log('in show');
+
+            $(".dialnumbtncls").hide();
+
+
+
+            $(".statusdialbtn").prop("disabled", true);
+
+            $(".dialinp").prop("disabled", true);
+
+            $('.statusdialbtn').css('background-color', '#4BA84B')
+            $('.statusdialbtn').html('<i class="fa fa-chevron-down" style="border-right-style: solid;padding-right:10px"></i> <i class="' + $(this).parent().find('i').attr('class') + '"></i> ' + 'On Call' + '</a> ');
+
+
+
+
+            $(".disconnectbtncls").hide(0, function () {
+
+                console.log('in show hide fade out');
+
+
+                $(".hangupbtncls").fadeIn(1000);
+
+                //remove only activate play in statius application
+               // $(".playbtncls").fadeIn(1000);
+
+
+            });
+
+
+
+
+
+
+
+
+            return true;
+        }
+
+        //away show hide
+        function awayshowhide() {
+
+            $('.navsrv_ul').hide();
+
+            $('.trustMnuhide').hide();
+            $('.dialnumbtncls').hide();
+            $('.dialinp').prop('disabled', true);
+           // $('disconnectbtncls').show();
+
+
+
+            clearrec();
+            return true;
+        }
+
+        //switch for weather
+        function weatherswitch(valin) {
+            switch (valin) {
+                case 'COLD': inconrepc = 'CLEAR_DAY'; break;
+                case 'SUNNY': inconrepc = 'CLEAR_DAY'; break;
+                case 'FAIR_DAY': inconrepc = 'CLEAR_DAY'; break;
+                case 'HOT': inconrepc = 'CLEAR_DAY'; break;
+                case 'CLEAR_NIGHT': inconrepc = 'CLEAR_NIGHT'; break;
+                case 'FAIR_NIGHT': inconrepc = 'CLEAR_NIGHT'; break;
+                case 'MOSTLY_CLOUDY_NIGHT': inconrepc = 'PARTLY_CLOUDY_DAY'; break;
+                case 'MOSTLY_CLOUDY': inconrepc = 'PARTLY_CLOUDY_DAY'; break;
+                case 'MOSTLY_CLOUDY_DAY': inconrepc = 'PARTLY_CLOUDY_DAY'; break;
+                case 'DUST': inconrepc = 'FOG'; break;
+                case 'FOGGY': inconrepc = 'FOG'; break;
+                case 'HAZE': inconrepc = 'FOG'; break;
+                case 'SMOKY': inconrepc = 'FOG'; break;
+                case 'CLOUDY': inconrepc = 'PARTLY_CLOUDY_DAY'; break;
+                case 'PARTLY_CLOUDY_DAY': inconrepc = 'PARTLY_CLOUDY_DAY'; break;
+                case 'PARTLY_CLOUDY_NIGHT': inconrepc = 'PARTLY_CLOUDY_NIGHT'; break;
+                case 'TORNADO': inconrepc = 'RAIN'; break;
+                case 'TROPICAL_STORM': inconrepc = 'RAIN'; break;
+                case 'HURRICANE': inconrepc = 'RAIN'; break;
+                case 'SEVERE_THUNDERSTORMS': inconrepc = 'RAIN'; break;
+                case 'THUNDERSTORMS': inconrepc = 'RAIN'; break;
+                case 'DRIZZLE': inconrepc = 'RAIN'; break;
+                case 'FREEZING_RAIN': inconrepc = 'RAIN'; break;
+                case 'SHOWERS': inconrepc = 'RAIN'; break;
+                case 'SHOWERS': inconrepc = 'RAIN'; break;
+                case 'MIXED_RAIN_AND_HAIL': inconrepc = 'RAIN'; break;
+                case 'ISOLATED_THUNDERSTORMS': inconrepc = 'RAIN'; break;
+                case 'SCATTERED_THUNDERSTORMS': inconrepc = 'RAIN'; break;
+                case 'SCATTERED_THUNDERSTORMS': inconrepc = 'RAIN'; break;
+                case 'SCATTERED_SHOWERS': inconrepc = 'RAIN'; break;
+                case 'SCATTERED_SNOW_SHOWERS': inconrepc = 'RAIN'; break;
+                case 'ISOLATED_THUNDERSHOWERS': inconrepc = 'RAIN'; break;
+                case 'MIXED_RAIN_AND_SLEET': inconrepc = 'SLEET'; break;
+                case 'MIXED_SNOW_AND_SLEET': inconrepc = 'SLEET'; break;
+                case 'FREEZING_DRIZZLE': inconrepc = 'SLEET'; break;
+                case 'HAIL': inconrepc = 'SLEET'; break;
+                case 'SLEET': inconrepc = 'SLEET'; break;
+                case 'MIXED_RAIN_AND_SNOW': inconrepc = 'SNOW'; break;
+                case 'SNOW_FLURRIES': inconrepc = 'SNOW'; break;
+                case 'LIGHT_SNOW_SHOWERS': inconrepc = 'SNOW'; break;
+                case 'BLOWING_SNOW': inconrepc = 'SNOW'; break;
+                case 'SNOW': inconrepc = 'SNOW'; break;
+                case 'HEAVY_SNOW': inconrepc = 'SNOW'; break;
+                case 'HEAVY_SNOW': inconrepc = 'SNOW'; break;
+                case 'PARTLY_CLOUDY': inconrepc = 'PARTLY_CLOUDY_DAY'; break;
+                case 'THUNDERSHOWERS': inconrepc = 'SNOW'; break;
+                case 'SNOW_SHOWERS': inconrepc = 'SNOW'; break;
+                case 'BLUSTERY': inconrepc = 'WIND'; break;
+                case 'WINDY': inconrepc = 'WIND'; break;
+                default:
+                    inconrepc = 'CLEAR_DAY';
+
+            }
+
+            return inconrepc;
+
+        }
+
+
+        
+
+
+        $(document).ready(function () {
+
+            //calendar
+
+            // init the calendar
+            var date = new Date();
+            var d = date.getDate();
+            var m = date.getMonth();
+            var y = date.getFullYear();
+
+         
+            //click events
+
+
+
+            //appointment click 
+
+            $(".set_appt_btn").click(function (e) {
+                $('#setagentappt_modal').modal('show');
+            });
+
+      
+
+
+
+        
+            //connect show hid buttons 
+            $(".connectbtncls").click(function (e) {
+                hideshowconnectbtn();
+                e.preventDefault();
+            });
+
+            //bridge click
+            $(".bridgebtn").click(function (e) {
+
+                console.log('DB update');
+
+               // socket.emit("testdb", socket.id, "HERRON");
+                e.preventDefault();
+
+            });
+
+
+            //save info btn
+
+            
+           function saveinfo_record_agent(){
+
+
+
+                var apptdate = '';
+
+
+                if ( $('#datetimepickerappt').data("DateTimePicker").date() != null)
+                {
+
+                    apptdate =  $('#datetimepickerappt').data("DateTimePicker").date().format("MM/DD/YYYY HH:mm:ss") ;
+                    $('.td_appt_dt').html($('#datetimepickerappt').data("DateTimePicker").date().format('LLLL'));
+
+                }
+
+
+                
+                var updaterecordinfo = {
+
+                    first_name: $.trim($('.td_rec_name a').html().split(' ')[0]).replace('Empty','') || '',
+                    last_name: $.trim($('.td_rec_name a').html().split(' ')[1]).replace('Empty', '') || '',
+                    home_phone: $.trim($('.td_rec_hp a').html()).replace('Empty', '') || '',
+                    work_phone: $.trim($('.td_rec_wp a').html()).replace('Empty', '') || '',
+                    cust_h_ext: $.trim($('.td_rec_ext a').html()).replace('Empty', '') || '',
+                    cust_title: $.trim($('.td_rec_title a').html()).replace('Empty', '') || '',
+                    contact_email: $.trim($('.td_rec_email a').html()).replace('Empty', '') || '',
+                    contact_addr: $.trim($('.td_rec_addr a').html()).replace('Empty', '') || '',
+                    contact_city: $.trim($('.td_rec_city a').html()).replace('Empty', '') || '',
+                    contact_state: $.trim($('.td_rec_state a').html()).replace('Empty', '') || '',
+                    contact_zip: $.trim($('.td_rec_zip a').html()).replace('Empty', '') || '',
+                    business_name: $.trim($('.td_rec_company a').html()).replace('Empty', '') || '',
+                    business_type: $.trim($('.td_rec_biz a').html()).replace('Empty', '') || '',
+                    appt_dt: apptdate,
+                    comments: $('.com_textarea').val() || '',
+                    contact_wk: currentrecord.contact_wk
+                };
+
+            
+
+                var inputdialval = $('.dialinp').val() || '';
+                var dial_info_input = $.trim($('.td_rec_hp a').html()).replace('Empty', '') || '';
+
+
+                //update dial box if primary phone number is updated. 
+                if (inputdialval != dial_info_input)
+                {
+
+                    $('.dialinp').val($.trim($('.td_rec_hp a').html()).replace('Empty', '') || '');
+                }
+
+                socket.emit("update_rec_info", updaterecordinfo, function (emitcallbackdata) {
+
+
+                    console.log(emitcallbackdata);
+
+
+                    $('#user .editable').editable('option', 'disabled', true);
+
+
+               
+                        $('.lockunlockbtn').html('Edit');
+                        $('.appt_dt_input').prop("disabled", true);
+                        $('.com_textarea').prop("disabled", true);
+                        $('.lockunlockbtn').html('Edit');
+                        $('.lockunlockbtn').removeClass('btn-danger');
+                        $('.lockunlockbtn').addClass('btn-success');
+                
+                
+
+                });
+
+
+            }
+
+
+           $('#datetimepickerappt').datetimepicker({ sideBySide: false });
+
+            //enable / disable recedit
+           $('#enableRecedit').click(function (e) {
+          
+
+
+               //show hit save btn
+
+               if ($('.lockunlockbtn').html() == 'Save') {
+
+
+
+                   $('button.btn-sm.editable-submit').trigger('click');
+                   $('#user .editable').editable('option', 'disabled', true);
+
+                   //save info routine 
+                   saveinfo_record_agent(e);
+                   $('.appt_dt_input').prop("disabled", true);
+                   $('.com_textarea').prop("disabled", true);
+                   $('.lockunlockbtn').html('Edit');
+                   $('.lockunlockbtn').removeClass('btn-danger');
+                   $('.lockunlockbtn').addClass('btn-success');
+               } else {
+
+                   $('#user .editable').editable('option', 'disabled', false);
+                   $('.lockunlockbtn').html('Save');
+                   $('.lockunlockbtn').addClass('btn-danger');
+                   $('.lockunlockbtn').removeClass('btn-success');
+                   $('.com_textarea').prop("disabled", false);
+                   $('.appt_dt_input').prop("disabled", false);
+               }
+           });
+
+            //save dispo
+            $(".btnsavedispo").click(function (e) {
+
+             
+                if ($('.fancy-checkbox .dispobox').is(":checked")) {
+
+                    var selecteddispo = '';
+
+
+                    if (current_user_srv.dispo_code == 'EMI' &&  !isValidEmailAddress($.trim($('#dispo_email').val())))
+                    {
+                        $('.dispoerrordisplay').html('<i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Invaild Email Address').fadeIn(1000).fadeOut(1000).fadeIn(1000).fadeOut(1000);
+                     
+                        return;
+                    }else if (current_user_srv.dispo_code == 'EMI' && $.trim($('#dispo_email_body').val()).length < 10) {
+                        $('.dispoerrordisplay').html('<i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Invaild Email Body').fadeIn(1000).fadeOut(1000).fadeIn(1000).fadeOut(1000);
+                     
+                        return;
+                    };
+
+
+
+                  
+                    timercall.stop();
+            
+                    $('.calltime').html('');
+
+
+                    $('.statusdialbtn').css('background-color', '#4BA84B')
+                    $('.statusdialbtn').html('<i class="fa fa-chevron-down" style="border-right-style: solid;padding-right:10px"></i> <i class="' + $(this).parent().find('i').attr('class') + '"></i> ' + 'Available' + '</a> ');
+
+
+
+
+                    timerdispo.stop();
+              
+                    $('.dispotimer').html('');
+
+                
+
+         
+                        var talk = moment.duration(timercall.lap()).seconds();
+                        var wrap = moment.duration(timerdispo.lap()).seconds();
+                        var cbt = $('#datetimepickercallback').data("DateTimePicker").date().format("MM/DD/YYYY HH:mm:ss");
+
+                        $('.callback_div').hide();
+
+                        $('.emaildispo_div').hide();
+                      
+                        
+                        socket.emit("dispobtn", socket.id, current_user_srv.dispo_descript, current_user_srv.dispo_code, talk, wrap, cbt, 'SCO', current_user_srv.att_wk, current_user_srv.contact_wk, $.trim($('#dispo_email').val()), $('#dispo_email_body').val(), function (emitcallbackdata) {
+                            
+                            console.log('seconds call' + moment.duration(timercall.lap()).seconds());
+                            timerdispo.reset();
+                            timercall.reset();
+                            current_user_srv.dispo_code = '';
+                            current_user_srv.dispo_descript ='';
+                            $('#dispo_email_body').val('');
+                            $('#dispo_email').val('');
+                            afterdisposhowhide();
+
+                        });
+
+                } else {
+                    $('.dispoerrordisplay').html('<i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Please select disposition').fadeIn(1000).fadeOut(1000).fadeIn(1000).fadeOut(1000).fadeIn(1000).fadeOut(1000);
+
+                }
+
+                e.preventDefault();
+
+            });
+
+            //chat status functions 
+            $('.chatstatusdd li > a').click(function (e) {
+
+                var btnvalue = $.trim(this.innerHTML.substring(this.innerHTML.indexOf("</i>") + 4, this.innerHTML.length));
+                $('.chatstatusdd li').removeClass('active');
+                $(this).parent().addClass('active');
+
+                $('.agstatus_displaybox').html(btnvalue);
+
+                if (btnvalue == 'Available') {
+                    $('.chatdialbtn').css('background-color', '#4BA84B');
+                } else if (btnvalue == 'Away') {
+                    $('.chatdialbtn').css('background-color', '#DB3833');
+                } else if (btnvalue == 'Busy') {
+                    $('.chatdialbtn').css('background-color', '#e49626');
+
+                } else {
+
+                    $('.chatdialbtn').css('background-color', '#337ab7');
+
+
+                }
+
+                $('.chatdialbtn').html('<i class="fa fa-chevron-down" style="border-right-style: solid;padding-right:10px"></i> <i class="' + $(this).parent().find('i').attr('class') + '"></i> ' + btnvalue + '</a> ');
+
+
+
+
+                socket.emit("statusbtn", socket.id, { type: 'chat', btnval: btnvalue });
+
+
+                $('.chatcontrolstatusspan').html(this.innerHTML)
+                e.preventDefault();
+
+            });
+
+
+            //diAl status functions 
+            $('.dialstatusdd li > a').click(function (e) {
+                var btnvalue = $.trim(this.innerHTML.substring(this.innerHTML.indexOf("</i>") + 4, this.innerHTML.length));
+                $('.dialstatusdd li').removeClass('active');
+                $(this).parent().addClass('active');
+                $('.agstatus_displaybox').html(btnvalue);
+
+                if (btnvalue == 'Available') {
+                    $('.statusdialbtn').css('background-color', '#4BA84B');
+                    $('.disconnectbtncls').hide();
+                } else if (btnvalue == 'Away') {
+                    $('.statusdialbtn').css('background-color', '#DB3833');
+                    awayshowhide();
+                   // $(".disconnectbtncls").show();
+                } else if (btnvalue == 'Busy') {
+                    $('.statusdialbtn').css('background-color', '#e49626');
+                    awayshowhide();
+                   // $(".disconnectbtncls").show();
+                } else {
+                    $('.statusdialbtn').css('background-color', '#337ab7');
+                }
+
+                $('.statusdialbtn').html('<i class="fa fa-chevron-down" style="border-right-style: solid;padding-right:10px"></i> <i class="' + $(this).parent().find('i').attr('class') + '"></i> ' + btnvalue + '</a> ');
+
+                socket.emit("statusbtn", socket.id, { type: 'dial', btnval: btnvalue });
+
+                $('.dialcontrolstatusspan').html(this.innerHTML)
+                e.preventDefault();
+            });
+
+            $(".dialnumbtncls").click(function (e) {
+
+                timercall.start();
+
+                socket.emit("dialbtn", socket.id, $('.dialinp').val(), sipconfigdb.sip_gateway, sipconfigdb.out_callerid, function (currentchannelout, currentbridge, currentagentchannel, currentatt_wk) {
+
+
+                    current_user_srv.bridge = currentbridge;
+                    current_user_srv.channelout = currentchannelout;
+                    current_user_srv.channelagent = currentagentchannel;
+                    current_user_srv.att_wk = currentatt_wk;
+               
+          
+                    console.log(currentbridge);
+                    console.log(currentagentchannel);
+                    console.log(currentchannelout);
+
+                });
+                
+                dialhideshowbuttons();
+
+
+                e.preventDefault();
+            });
+
+            $(".playbtncls").click(function (e) {
+                timercall.stop();
+                timercall.reset();
+                //hide show play buttons
+                hideshowplaybtn();
+                //clear record info 
+                clearrec();
+                e.preventDefault();
+            });
+
+            $(".disconnectbtncls").click(function (e) {
+                $(".disconnectbtncls").hide();
+
+                $.gritter.add({
+                    // (string | mandatory) the heading of the notification
+                    title: 'Dial Notice',
+                    // (string | mandatory) the text inside the notification
+                    text: 'Disconnected from System!',
+                    image: 'assets/ico/png/smartphone-ringing.png',
+                    time: 1000,
+                    class_name: 'gritter-light gritclassred'
+                });
+                socket.emit("discconnbtn", socket.id);
+
+
+
+
+                $.when(hideshowbuttonsdisconnect()).done(function () {
+                    $(".connectbtncls").fadeIn(3000);
+
+                });
+
+
+
+
+
+                e.preventDefault();
+            });
+
+            $(".hangupbtncls").click(function (e) {
+
+
+                timercall.stop();
+                timercall.reset();
+                timerdispo.start();
+                hideshowhangup();
+
+                e.preventDefault();
+            });
+
+            $(".phoneshowhide").click(function (e) {
+                console.log('in fun' + menuleft);
+
+                if (menuleft == 0) {
+                    $("#page-wrapper").toggleClass("col-md-9", 1000).promise().done(function () {
+
+                        $(".phonediv").toggle(1000);
+
+                        menuleft = 1;
+
+                        console.log(menuleft);
+
+                    });
+
+                } else {
+
+
+                    $(".phonediv").toggle(1000).promise().done(function () {
+
+                        $("#page-wrapper").toggleClass("col-md-9", 1000);
+                        menuleft = 0;
+                        console.log(menuleft);
+                    });;
+
+
+
+
+                }
+
+
+                e.preventDefault();
+            });
+
+            //MENU RIGHT GLOBAL VAR
+            var menuright = 0;
+            $(".sidebarbtn").click(function (e) {
+
+
+                if (menuright == 0) {
+
+
+                    $('.sidebar-nav ').toggle("fast", function () {
+                        $("#page-wrapper").animate({ "margin": "0px 0px 0px 0px !important;" }, 1000).promise()
+                          .done(function () {
+
+                          });
+                        menuright = 1;
+                        // Animation complete.
+                    });
+
+                } else {
+                    $("#page-wrapper").animate({ "margin": "0px 0px 0px 250px !important;" }, 1000).promise()
+                      .done(function () {
+                          $('.sidebar-nav ').toggle("fast", function () {
+                              // Animation complete.
+                          });
+                      });
+                    menuright = 0
+                }
+
+
+
+                console.log("sidebar");
+
+                e.preventDefault();
+            });
+
+            //button chat
+            $("#btn-chat").click(function (e) {
+
+                if ($(".chatinput").val().trim() != '') {
+                    socket.emit("chatbtnsend", $(".chatinput").val(), sipconfigdb.first_name + ' ' + sipconfigdb.last_name);
+                    e.preventDefault();
+                }
+            });
+
+            // close open divs on  page ,load 
+            $('.clicktoggeclose').trigger("click");
+
+            $('#datetimepicker12').datetimepicker({ inline: true,  sideBySide: true });
+
+            $('.chatinput').keypress(function (e) {
+                var code = e.keyCode || e.which;
+
+                console.log(code);
+
+                if (code === 13) {
+                    e.preventDefault();
+                    $("#btn-chat").click();
+                }
+
+            });
+
+        });
+    </script>
+
+    
+<script type="text/javascript">
+    $(function () {
+        
+
+    });
+</script>
+
+
+</body>
+
+
+
+</html>

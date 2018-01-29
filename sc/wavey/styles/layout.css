@@ -1,0 +1,152 @@
+
+.audio-editor {
+	user-select: none;
+	-ms-user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	display: flex;
+	flex-direction: column;
+}
+
+.controls,
+.playback-controls,
+.document-controls {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.controls .linked > *,
+.controls i,
+.dropdown-button-container,
+.menu-positioner {
+	display: inline-block;
+	vertical-align: bottom; /* always specify vertical-align for inline-blocks */
+}
+.menu-positioner {
+	position: relative;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+.dropdown-menu {
+	z-index: 5;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.menu-item {
+	cursor: default;
+	white-space: nowrap;
+}
+
+.tracks-area {
+	flex: 1;
+	display: flex;
+}
+.track-content-area {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	overflow: auto;
+	position: relative;
+}
+.track {
+	flex-shrink: 0;
+}
+.track.pinned {
+	order: -1;
+}
+.track.timeline-independent {
+	z-index: 2;
+}
+
+.track p {
+	user-select: text;
+	-ms-user-select: text;
+	-moz-user-select: text;
+	-webkit-user-select: text;
+}
+
+.tracks-area {
+	min-height: 0; /* needed for vertical scrolling to work in all browsers */
+	/* http://stackoverflow.com/questions/28636832/firefox-overflow-y-not-working-with-nested-flexbox */
+}
+.track-controls-area {
+	width: 104px;
+	overflow: hidden;
+	position: relative;
+}
+.track-controls {
+	position: absolute;
+	left: 8px;
+	white-space: nowrap;
+}
+.track-controls > .linked {
+	display: inline-block;
+	vertical-align: top; /* always specify vertical-align for inline-blocks */
+	margin-left: 4px;
+}
+.track-content {
+	overflow: hidden;
+}
+
+.beat-markings {
+	height: 1em;
+}
+
+.audio-clip {
+	height: 100%;
+	transform: translateZ(0);
+	pointer-events: none;
+}
+
+.selection,
+.position-indicator {
+	position: absolute;
+	top: 0;
+	height: 100%;
+}
+.selection {
+	z-index: 1;
+}
+.position-indicator {
+	pointer-events: none;
+	z-index: 2;
+}
+
+.info-bar:not(.visible) {
+	height: 0px;
+	border-width: 0px;
+}
+.info-bar {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	height: 40px;
+	padding: 0 5px;
+	transition: height 0.2s ease;
+	overflow: hidden;
+}
+.info-bar > GtkLabel {
+	flex: 1;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+/* Mozilla Firefox */
+button {
+	line-height: 1;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+
+/* Microsoft Edge */
+button > i {
+	pointer-events: none;
+}

@@ -1,0 +1,9 @@
+
+@import "../../node_modules/elementary.css/lib/elementary.css";
+@import "./elementary-shared.css";
+
+.audio-editor {
+	background: #dedede;
+}
+
+/* @FIXME: first beat marking looks bad against the edge */
